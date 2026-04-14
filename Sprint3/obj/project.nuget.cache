@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "o/XXGZdUV/4=",
+  "success": true,
+  "projectFilePath": "E:\\Leonam\\BACK_END\\Sprint_3\\Sprint3\\Sprint3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Leonam Sales\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\Leonam Sales\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
