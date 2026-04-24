@@ -5,41 +5,33 @@
     "version": "1.0"
   },
   "paths": {
-    "/WeatherForecast": {
-      "get": {
+    "/Filme": {
+      "post": {
         "tags": [
-          "WeatherForecast"
+          "Filme"
         ],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
-                  }
-                }
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filme"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filme"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filme"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -47,25 +39,20 @@
   },
   "components": {
     "schemas": {
-      "WeatherForecast": {
+      "Filme": {
         "type": "object",
         "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "summary": {
+          "titulo": {
             "type": "string",
             "nullable": true
+          },
+          "genero": {
+            "type": "string",
+            "nullable": true
+          },
+          "duracao": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

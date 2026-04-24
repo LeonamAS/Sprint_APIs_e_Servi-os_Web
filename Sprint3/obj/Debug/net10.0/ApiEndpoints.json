@@ -1,23 +1,24 @@
 [
   {
-    "ContainingType": "Sprint3.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
+    "ContainingType": "Sprint3.Controllers.FilmeController",
+    "Method": "AdicionaFilme",
+    "RelativePath": "Filme",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sprint3.WeatherForecast, Sprint3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "filme",
+        "Type": "Sprint3.Models.Filme",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   }
 ]
