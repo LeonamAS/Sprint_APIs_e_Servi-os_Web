@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Leonam\\BACK_END\\Sprint3\\",
+  "WorkspaceRootPath": "C:\\Users\\020.747731\\BackEnd\\Sprint_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|e:\\leonam\\back_end\\sprint3\\sprint3\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint_3\\sprint3\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|e:\\leonam\\back_end\\sprint3\\sprint3\\models\\filme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\models\\filme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,32 +22,19 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "FilmeController.cs",
-              "DocumentMoniker": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Controllers\\FilmeController.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint_3\\Sprint3\\Controllers\\FilmeController.cs",
               "RelativeDocumentMoniker": "Sprint3\\Controllers\\FilmeController.cs",
-              "ToolTip": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Controllers\\FilmeController.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint_3\\Sprint3\\Controllers\\FilmeController.cs",
               "RelativeToolTip": "Sprint3\\Controllers\\FilmeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T01:19:45.894Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Filme.cs",
-              "DocumentMoniker": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Models\\Filme.cs",
-              "RelativeDocumentMoniker": "Sprint3\\Models\\Filme.cs",
-              "ToolTip": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Models\\Filme.cs",
-              "RelativeToolTip": "Sprint3\\Models\\Filme.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T01:18:58.674Z",
+              "WhenOpened": "2026-04-24T11:21:29.755Z",
               "EditorCaption": ""
             }
           ]
