@@ -89,11 +89,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Leonam\\BACK_END\\Sprint_3\\Sprint3\\Sprint3.csproj",
+      "projectUniqueName": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Sprint3.csproj",
       "projectName": "Sprint3",
-      "projectPath": "E:\\Leonam\\BACK_END\\Sprint_3\\Sprint3\\Sprint3.csproj",
+      "projectPath": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Sprint3.csproj",
       "packagesPath": "C:\\Users\\Leonam Sales\\.nuget\\packages\\",
-      "outputPath": "E:\\Leonam\\BACK_END\\Sprint_3\\Sprint3\\obj\\",
+      "outputPath": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -112,6 +112,7 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -130,6 +131,7 @@
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
@@ -156,7 +158,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
