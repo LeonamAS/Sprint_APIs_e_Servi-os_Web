@@ -15,8 +15,25 @@ public class EmhsDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Nota>(entity =>
+        {
+            entity.Property(n => n.Valor)
+                .HasPrecision(5, 2)
+                .IsRequired();
+        });
+
+        // Configurações adicionais de Relacionamentos (Opcional, mas recomendado)
+        modelBuilder.Entity<Turma>()
+            .HasOne(t => t.Professor)
+            .WithMany(p => p.Turmas)
+            .HasForeignKey(t => t.ProfessorId)
+            .OnDelete(DeleteBehavior.Restrict); // Evita deletar professor com turmas ativas
+
         modelBuilder.Entity<Nota>()
-            .Property(n => n.Valor)
-            .HasPrecision(5, 2);
+            .HasOne(n => n.Aluno)
+            .WithMany(a => a.Notas)
+            .HasForeignKey(n => n.AlunoId);
     }
 }
