@@ -1,6 +1,6 @@
-﻿namespace Sprint3.DTOs;
+﻿namespace Sprint3.DTOs.Response;
 
-public class BoletimDto
+public class BoletimDTO
 {
     public string Aluno { get; set; }
     public string Disciplina { get; set; }

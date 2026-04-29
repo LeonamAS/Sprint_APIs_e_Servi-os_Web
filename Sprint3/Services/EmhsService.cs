@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sprint3.Data;
-using Sprint3.DTOs;
+using Sprint3.DTOs.Response;
 
 namespace Sprint3.Services
 {

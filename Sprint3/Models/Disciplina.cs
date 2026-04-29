@@ -5,6 +5,7 @@ namespace Sprint3.Models;
 public class Disciplina
 {
     [Key]
+    [Required]
     public int Id { get; set; }
 
     [Required(ErrorMessage = "O nome da disciplina é obrigatório")]
