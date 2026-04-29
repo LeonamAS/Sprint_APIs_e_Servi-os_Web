@@ -119,3 +119,9 @@ C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\refint\Sprint3.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.pdb
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.genruntimeconfig.cache
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\ref\Sprint3.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\AutoMapper.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
