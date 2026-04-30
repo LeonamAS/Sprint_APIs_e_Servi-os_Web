@@ -1,5 +1,183 @@
 [
   {
+    "ContainingType": "Sprint3Api.Controllers.CinemaController",
+    "Method": "AdicionaCinema",
+    "RelativePath": "Cinema",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cinemaDto",
+        "Type": "Sprint3.DTOs.CreateCinemaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3Api.Controllers.CinemaController",
+    "Method": "RecuperaCinemas",
+    "RelativePath": "Cinema",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sprint3.DTOs.ReadCinemaDto, Sprint3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Sprint3Api.Controllers.CinemaController",
+    "Method": "RecuperaCinemasPorId",
+    "RelativePath": "Cinema/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3Api.Controllers.CinemaController",
+    "Method": "AtualizaCinema",
+    "RelativePath": "Cinema/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cinemaDto",
+        "Type": "Sprint3.DTOs.UpdateCinemaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3Api.Controllers.CinemaController",
+    "Method": "DeletaCinema",
+    "RelativePath": "Cinema/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3.Controllers.EnderecoController",
+    "Method": "AdicionaEndereco",
+    "RelativePath": "Endereco",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "enderecoDto",
+        "Type": "Sprint3.DTOs.CreateEnderecoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3.Controllers.EnderecoController",
+    "Method": "RecuperaEnderecos",
+    "RelativePath": "Endereco",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sprint3.DTOs.ReadEnderecoDto, Sprint3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Sprint3.Controllers.EnderecoController",
+    "Method": "RecuperaEnderecosPorId",
+    "RelativePath": "Endereco/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3.Controllers.EnderecoController",
+    "Method": "AtualizaEndereco",
+    "RelativePath": "Endereco/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "enderecoDto",
+        "Type": "Sprint3.DTOs.UpdateEnderecoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3.Controllers.EnderecoController",
+    "Method": "DeletaEndereco",
+    "RelativePath": "Endereco/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sprint3.Controllers.FilmeController",
     "Method": "AdicionaFilme",
     "RelativePath": "Filme",

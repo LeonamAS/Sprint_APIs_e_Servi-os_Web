@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\profiles\\filmeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\profiles\\filmeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Migrations\\20260430141052_CinemaEEndereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Sprint3\\Migrations\\20260430141052_CinemaEEndereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\data\\filmecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\data\\filmecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\dtos\\readfilmedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\dtos\\readfilmedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\dtos\\readcinemadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\dtos\\readcinemadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\dtos\\createcinemadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\dtos\\createcinemadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\dtos\\updatefilmedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\dtos\\updatefilmedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\models\\endereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\models\\endereco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|c:\\users\\020.747731\\backend\\sprint3\\sprint3\\models\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983A1E89-248B-67A2-23D8-DEDB3C1ACB61}|Sprint3\\Sprint3.csproj|solutionrelative:sprint3\\models\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,70 +42,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReadFilmeDto.cs",
-              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\ReadFilmeDto.cs",
-              "RelativeDocumentMoniker": "Sprint3\\DTOs\\ReadFilmeDto.cs",
-              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\ReadFilmeDto.cs",
-              "RelativeToolTip": "Sprint3\\DTOs\\ReadFilmeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "20260430141052_CinemaEEndereco.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Migrations\\20260430141052_CinemaEEndereco.cs",
+              "RelativeDocumentMoniker": "Sprint3\\Migrations\\20260430141052_CinemaEEndereco.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Migrations\\20260430141052_CinemaEEndereco.cs",
+              "RelativeToolTip": "Sprint3\\Migrations\\20260430141052_CinemaEEndereco.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T12:11:51.046Z",
+              "WhenOpened": "2026-04-30T14:10:52.678Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FilmeContext.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Data\\FilmeContext.cs",
+              "RelativeDocumentMoniker": "Sprint3\\Data\\FilmeContext.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Data\\FilmeContext.cs",
+              "RelativeToolTip": "Sprint3\\Data\\FilmeContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T14:10:18.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReadCinemaDto.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\ReadCinemaDto.cs",
+              "RelativeDocumentMoniker": "Sprint3\\DTOs\\ReadCinemaDto.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\ReadCinemaDto.cs",
+              "RelativeToolTip": "Sprint3\\DTOs\\ReadCinemaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T14:06:21.465Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Program.cs",
-              "RelativeDocumentMoniker": "Sprint3\\Program.cs",
-              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Program.cs",
-              "RelativeToolTip": "Sprint3\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Title": "CreateCinemaDto.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\CreateCinemaDto.cs",
+              "RelativeDocumentMoniker": "Sprint3\\DTOs\\CreateCinemaDto.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\CreateCinemaDto.cs",
+              "RelativeToolTip": "Sprint3\\DTOs\\CreateCinemaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T14:34:53.823Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FilmeProfile.cs",
-              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Profiles\\FilmeProfile.cs",
-              "RelativeDocumentMoniker": "Sprint3\\Profiles\\FilmeProfile.cs",
-              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Profiles\\FilmeProfile.cs",
-              "RelativeToolTip": "Sprint3\\Profiles\\FilmeProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T14:12:30.978Z",
+              "WhenOpened": "2026-04-30T14:05:32.586Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UpdateFilmeDto.cs",
-              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\UpdateFilmeDto.cs",
-              "RelativeDocumentMoniker": "Sprint3\\DTOs\\UpdateFilmeDto.cs",
-              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\DTOs\\UpdateFilmeDto.cs",
-              "RelativeToolTip": "Sprint3\\DTOs\\UpdateFilmeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Title": "Endereco.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Models\\Endereco.cs",
+              "RelativeDocumentMoniker": "Sprint3\\Models\\Endereco.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Models\\Endereco.cs",
+              "RelativeToolTip": "Sprint3\\Models\\Endereco.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T14:05:00.414Z"
+              "WhenOpened": "2026-04-30T14:03:39.426Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FilmeController.cs",
-              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Controllers\\FilmeController.cs",
-              "RelativeDocumentMoniker": "Sprint3\\Controllers\\FilmeController.cs",
-              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Controllers\\FilmeController.cs",
-              "RelativeToolTip": "Sprint3\\Controllers\\FilmeController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCUAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Cinema.cs",
+              "DocumentMoniker": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Models\\Cinema.cs",
+              "RelativeDocumentMoniker": "Sprint3\\Models\\Cinema.cs",
+              "ToolTip": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Models\\Cinema.cs",
+              "RelativeToolTip": "Sprint3\\Models\\Cinema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-27T14:30:29.873Z",
+              "WhenOpened": "2026-04-30T14:02:12.479Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }
