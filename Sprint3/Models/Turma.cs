@@ -9,9 +9,9 @@ public class Turma
     [Required]
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "O código da turma é obrigatório")]
-    [StringLength(20, ErrorMessage = "O código da turma não pode exceder 20 caracteres")]
-    public string CodigoDaTurma { get; set; }
+    [Required(ErrorMessage = "O nome da turma é obrigatório")]
+    [StringLength(20, ErrorMessage = "O nome da turma não pode exceder 20 caracteres")]
+    public string Nome { get; set; }
 
     // Chaves Estrangeiras
     [Required(ErrorMessage = "O ID do professor é obrigatório")]
@@ -25,4 +25,6 @@ public class Turma
 
     [ForeignKey("DisciplinaId")]
     public Disciplina Disciplina { get; set; }
+
+    public ICollection<MatriculaDisciplina> Matriculas { get; set; } = new List<MatriculaDisciplina>();
 }

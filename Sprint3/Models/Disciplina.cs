@@ -15,4 +15,6 @@ public class Disciplina
     [Required(ErrorMessage = "A carga horária é obrigatória")]
     [Range(1, 500, ErrorMessage = "A carga horária deve estar entre 1 e 500 horas")]
     public int CargaHoraria { get; set; }
+
+    public ICollection<Turma> Turmas { get; set; } = new List<Turma>();
 }

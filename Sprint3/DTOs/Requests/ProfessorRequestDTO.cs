@@ -8,6 +8,10 @@ public class ProfessorRequestDTO
     [StringLength(100, ErrorMessage = "O nome não pode exceder 100 caracteres")]
     public string Nome { get; set; }
 
+    [Required(ErrorMessage = "O CPF é obrigatório")]
+    [StringLength(14)]
+    public string Cpf { get; set; }
+
     [Required(ErrorMessage = "A especialidade do professor é obrigatória")]
     public string Especialidade { get; set; }
 }
