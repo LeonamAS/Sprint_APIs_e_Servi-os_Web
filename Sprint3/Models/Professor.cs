@@ -14,7 +14,7 @@ public class Professor
 
     [Required(ErrorMessage = "O CPF é obrigatório")]
     [StringLength(14)]
-    public string Cpf { get; set; } //Checar por erros
+    public string Cpf { get; set; }
 
     [Required(ErrorMessage = "A especialidade do professor é obrigatória")]
     public string Especialidade { get; set; }

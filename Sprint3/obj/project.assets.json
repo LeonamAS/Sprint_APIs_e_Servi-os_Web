@@ -15,24 +15,27 @@
           }
         }
       },
-      "Microsoft.AspNetCore.OpenApi/9.0.15": {
+      "Microsoft.AspNetCore.OpenApi/10.0.7": {
         "type": "package",
         "dependencies": {
-          "Microsoft.OpenApi": "1.6.17"
+          "Microsoft.OpenApi": "2.0.0"
         },
         "compile": {
-          "lib/net9.0/Microsoft.AspNetCore.OpenApi.dll": {
+          "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.AspNetCore.OpenApi.dll": {
+          "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll": {
             "related": ".xml"
           }
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
-        ]
+        ],
+        "build": {
+          "build/Microsoft.AspNetCore.OpenApi.targets": {}
+        }
       },
       "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
         "type": "package",
@@ -758,19 +761,21 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.OpenApi/9.0.15": {
-      "sha512": "QQW4lLEgMMgVSAlTocaoEf5xZstKZFLyIYtrRP/bq3BmvsJkU8ugiU7MaUWz4vEednZLNhGq1JSZq22QFQqIfg==",
+    "Microsoft.AspNetCore.OpenApi/10.0.7": {
+      "sha512": "vKiAcGXG0BwNVw3bOjjWRLnp9tR18dR7MiwpvC94h0yFS+zfnzGHzS/JmmgwUdRixrGxrlIMRAWrVc+2DfAGlg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.openapi/9.0.15",
+      "path": "microsoft.aspnetcore.openapi/10.0.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net9.0/Microsoft.AspNetCore.OpenApi.dll",
-        "lib/net9.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.9.0.15.nupkg.sha512",
+        "analyzers/dotnet/cs/Microsoft.AspNetCore.OpenApi.SourceGenerators.dll",
+        "build/Microsoft.AspNetCore.OpenApi.targets",
+        "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll",
+        "lib/net10.0/Microsoft.AspNetCore.OpenApi.xml",
+        "microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
@@ -2484,7 +2489,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.OpenApi >= 9.0.15",
+      "Microsoft.AspNetCore.OpenApi >= 10.0.7",
       "Microsoft.EntityFrameworkCore >= 9.0.15",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.15",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0",
@@ -2547,7 +2552,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
-            "version": "[9.0.15, )"
+            "version": "[10.0.7, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
