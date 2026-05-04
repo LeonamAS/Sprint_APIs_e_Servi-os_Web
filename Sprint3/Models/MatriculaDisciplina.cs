@@ -21,12 +21,10 @@ public class MatriculaDisciplina
     [ForeignKey("TurmaId")]
     public Turma Turma { get; set; }
 
-    [Required(ErrorMessage = "O valor da nota é obrigatório")]
     [Range(0, 10, ErrorMessage = "A nota deve estar entre 0 e 10")]
     [Column(TypeName = "decimal(4,2)")]
     public decimal? Nota { get; set; }
 
-    [Required(ErrorMessage = "O valor da frequencia é obrigatório")]
     [Range(0, 100, ErrorMessage = "A frequencia deve estar entre 0 e 100")]
     [Column(TypeName = "decimal(5,2)")]
     public decimal? Frequencia { get; set; }

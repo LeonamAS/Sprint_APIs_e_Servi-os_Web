@@ -14,15 +14,15 @@ public class Aluno
 
     [Required(ErrorMessage = "O CPF é obrigatório")]
     [StringLength(14)] 
-    public string Cpf { get; set; } //Checar por erros
+    public string Cpf { get; set; }
 
     [Required(ErrorMessage = "A data de nascimento é obrigatória")]
-    public DateTime DataNascimento { get; set; } //Checar o formato da data
+    public DateTime DataNascimento { get; set; }
 
     [Required(ErrorMessage = "A matrícula do aluno é obrigatória")]
     [RegularExpression(@"^[0-9]*$", ErrorMessage = "A matrícula deve conter apenas números")]
+    [StringLength(6)]
     public string Matricula { get; set; }
 
-    // Relacionamento: Um Aluno tem muitas Notas
     public ICollection<MatriculaDisciplina> Matriculas { get; set; } = new List<MatriculaDisciplina>();
 }
