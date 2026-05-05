@@ -321,27 +321,6 @@
   },
   {
     "ContainingType": "Sprint3.Controllers.EmhsController",
-    "Method": "LancarNota",
-    "RelativePath": "api/Emhs/{matriculaId}/lancar-nota",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "matriculaId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dados",
-        "Type": "Sprint3.DTOs.Requests.LancamentoNotaDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sprint3.Controllers.EmhsController",
     "Method": "GetBoletim",
     "RelativePath": "api/Emhs/aluno/{alunoId}/disciplina/{disciplinaId}/boletim",
     "HttpMethod": "GET",
@@ -381,7 +360,7 @@
     "Parameters": [
       {
         "Name": "matricula",
-        "Type": "Sprint3.Models.MatriculaDisciplina",
+        "Type": "Sprint3.Models.Matricula",
         "IsRequired": true
       }
     ],

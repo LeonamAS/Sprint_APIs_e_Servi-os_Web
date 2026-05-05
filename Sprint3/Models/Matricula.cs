@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sprint3.Models;
 
-public class MatriculaDisciplina
+public class Matricula
 {
     [Key]
     [Required]

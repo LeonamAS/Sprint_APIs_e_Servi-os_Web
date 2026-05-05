@@ -577,59 +577,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MatriculaDisciplina"
+                "$ref": "#/components/schemas/Matricula"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/MatriculaDisciplina"
+                "$ref": "#/components/schemas/Matricula"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/MatriculaDisciplina"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Emhs/{matriculaId}/lancar-nota": {
-      "patch": {
-        "tags": [
-          "Emhs"
-        ],
-        "parameters": [
-          {
-            "name": "matriculaId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LancamentoNotaDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LancamentoNotaDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LancamentoNotaDTO"
+                "$ref": "#/components/schemas/Matricula"
               }
             }
           }
@@ -1202,7 +1160,7 @@
           "matriculas": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MatriculaDisciplina"
+              "$ref": "#/components/schemas/Matricula"
             },
             "nullable": true
           }
@@ -1421,29 +1379,7 @@
         },
         "additionalProperties": false
       },
-      "LancamentoNotaDTO": {
-        "required": [
-          "frequencia",
-          "nota"
-        ],
-        "type": "object",
-        "properties": {
-          "nota": {
-            "maximum": 10,
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "frequencia": {
-            "maximum": 100,
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "MatriculaDisciplina": {
+      "Matricula": {
         "required": [
           "alunoId",
           "id",
@@ -1607,7 +1543,7 @@
           "matriculas": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MatriculaDisciplina"
+              "$ref": "#/components/schemas/Matricula"
             },
             "nullable": true
           }

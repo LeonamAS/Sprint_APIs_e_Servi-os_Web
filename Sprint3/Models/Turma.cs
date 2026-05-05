@@ -26,5 +26,5 @@ public class Turma
     [ForeignKey("DisciplinaId")]
     public Disciplina Disciplina { get; set; }
 
-    public ICollection<MatriculaDisciplina> Matriculas { get; set; } = new List<MatriculaDisciplina>();
+    public ICollection<Matricula> Matriculas { get; set; } = new List<Matricula>();
 }

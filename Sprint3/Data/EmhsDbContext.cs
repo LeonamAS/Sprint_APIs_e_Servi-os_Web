@@ -11,13 +11,13 @@ public class EmhsDbContext : DbContext
     public DbSet<Professor> Professores { get; set; }
     public DbSet<Disciplina> Disciplinas { get; set; }
     public DbSet<Turma> Turmas { get; set; }
-    public DbSet<MatriculaDisciplina> MatriculasDisciplinas { get; set; }
+    public DbSet<Matricula> Matriculas { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<MatriculaDisciplina>(entity =>
+        modelBuilder.Entity<Matricula>(entity =>
         {
             entity.Property(m => m.Nota)
                 .HasPrecision(4, 2);
@@ -44,13 +44,13 @@ public class EmhsDbContext : DbContext
         // ==========================================
         // Configurações de Relacionamentos: Matrícula
         // ==========================================
-        modelBuilder.Entity<MatriculaDisciplina>()
+        modelBuilder.Entity<Matricula>()
             .HasOne(m => m.Aluno)
             .WithMany(a => a.Matriculas)
             .HasForeignKey(m => m.AlunoId)
             .OnDelete(DeleteBehavior.Cascade); // Se o aluno for deletado, suas matrículas/notas também são
 
-        modelBuilder.Entity<MatriculaDisciplina>()
+        modelBuilder.Entity<Matricula>()
             .HasOne(m => m.Turma)
             .WithMany(t => t.Matriculas)
             .HasForeignKey(m => m.TurmaId)

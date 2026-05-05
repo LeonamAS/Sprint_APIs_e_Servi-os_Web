@@ -21,7 +21,7 @@ public class MatriculaController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetMatriculas()
     {
-        var matriculas = await _context.MatriculasDisciplinas
+        var matriculas = await _context.Matriculas
             .Include(m => m.Aluno)
             .Include(m => m.Turma)
             .AsNoTracking()
@@ -43,7 +43,7 @@ public class MatriculaController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetMatriculaById(int id)
     {
-        var matricula = await _context.MatriculasDisciplinas
+        var matricula = await _context.Matriculas
             .Include(m => m.Aluno)
             .Include(m => m.Turma)
             .AsNoTracking()
@@ -77,13 +77,13 @@ public class MatriculaController : ControllerBase
         if (!alunoExiste || !turmaExiste)
             return BadRequest(new { Mensagem = "Aluno ou Turma inválidos (ID inexistente)." });
 
-        var matriculaDuplicada = await _context.MatriculasDisciplinas
+        var matriculaDuplicada = await _context.Matriculas
             .AnyAsync(m => m.AlunoId == dto.AlunoId && m.TurmaId == dto.TurmaId);
 
         if (matriculaDuplicada)
             return BadRequest(new { Mensagem = "Este aluno já está matriculado nesta turma." });
 
-        var novaMatricula = new MatriculaDisciplina
+        var novaMatricula = new Matricula
         {
             AlunoId = dto.AlunoId,
             TurmaId = dto.TurmaId,
@@ -91,7 +91,7 @@ public class MatriculaController : ControllerBase
             Frequencia = dto.Frequencia
         };
 
-        _context.MatriculasDisciplinas.Add(novaMatricula);
+        _context.Matriculas.Add(novaMatricula);
         await _context.SaveChangesAsync();
 
         return await GetMatriculaById(novaMatricula.Id);
@@ -100,7 +100,7 @@ public class MatriculaController : ControllerBase
     [HttpPatch("{id}")]
     public async Task<IActionResult> PatchMatricula(int id, [FromBody] UpdateMatriculaDTO dto)
     {
-        var matricula = await _context.MatriculasDisciplinas.FindAsync(id);
+        var matricula = await _context.Matriculas.FindAsync(id);
         if (matricula == null) return NotFound(new { Mensagem = "Matrícula não encontrada." });
 
         if (dto.Nota.HasValue)
@@ -116,10 +116,10 @@ public class MatriculaController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteMatricula(int id)
     {
-        var matricula = await _context.MatriculasDisciplinas.FindAsync(id);
+        var matricula = await _context.Matriculas.FindAsync(id);
         if (matricula == null) return NotFound(new { Mensagem = "Matrícula não encontrada." });
 
-        _context.MatriculasDisciplinas.Remove(matricula);
+        _context.Matriculas.Remove(matricula);
         await _context.SaveChangesAsync();
         return NoContent();
     }

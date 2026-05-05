@@ -21,9 +21,9 @@ public class EmhsService
         if (aluno == null || disciplina == null)
             throw new Exception("Aluno ou Disciplina não encontrados.");
 
-        // No novo modelo, navegamos pela tabela associativa (MatriculasDisciplinas)
+        // No novo modelo, navegamos pela tabela associativa (Matriculas)
         // e incluímos a Turma para conseguir filtrar pela Disciplina desejada.
-        var matricula = await _context.MatriculasDisciplinas
+        var matricula = await _context.Matriculas
         .Include(m => m.Turma) // "Viajamos" até a Turma...
         .Where(m => m.AlunoId == alunoId && m.Turma.DisciplinaId == disciplinaId) 
         .OrderByDescending(m => m.Id)
