@@ -71,8 +71,11 @@ public class AlunoController : ControllerBase
         if (dto.DataNascimento.Date > DateTime.Now.Date)
             return BadRequest(new { Mensagem = "A data de nascimento não pode estar no futuro." });
 
-        var cpfExiste = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf);
-        if (cpfExiste) return BadRequest(new { Mensagem = "Já existe um aluno com este CPF." });
+        var cpfExisteAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf);
+        var cpfExisteProfessor = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf);
+
+        if (cpfExisteAluno || cpfExisteProfessor)
+            return BadRequest(new { Mensagem = "Já existe um usuário (Aluno ou Professor) com este CPF." });
 
         var matriculaExiste = await _context.Alunos.AnyAsync(a => a.Matricula == dto.Matricula);
         if (matriculaExiste) return BadRequest(new { Mensagem = "Já existe um aluno com esta matrícula." });
@@ -122,8 +125,12 @@ public class AlunoController : ControllerBase
 
         if (!string.IsNullOrWhiteSpace(dto.Cpf))
         {
-            var cpfExiste = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf && a.Id != id);
-            if (cpfExiste) return BadRequest(new { Mensagem = "Já existe outro aluno com este CPF." });
+            var cpfExisteAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf && a.Id != id);
+            var cpfExisteProfessor = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf);
+
+            if (cpfExisteAluno || cpfExisteProfessor)
+                return BadRequest(new { Mensagem = "Já existe outro usuário (Aluno ou Professor) com este CPF." });
+
             aluno.Cpf = dto.Cpf;
         }
 
@@ -149,5 +156,35 @@ public class AlunoController : ControllerBase
         _context.Alunos.Remove(aluno);
         await _context.SaveChangesAsync();
         return NoContent();
+    }
+
+    [HttpGet("{id}/boletim")]
+    [ProducesResponseType(typeof(BoletimAlunoDTO), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetBoletimAluno(int id)
+    {
+        var alunoExiste = await _context.Alunos.AnyAsync(a => a.Id == id);
+        if (!alunoExiste)
+            return NotFound(new { Mensagem = "Aluno não encontrado." });
+
+        var boletim = await _context.Alunos
+            .AsNoTracking()
+            .Where(a => a.Id == id)
+            .Select(a => new BoletimAlunoDTO
+            {
+                AlunoId = a.Id,
+                NomeAluno = a.Nome,
+                Matricula = a.Matricula,
+                Disciplinas = a.Matriculas.Select(m => new MatriculaDetalheDTO
+                {
+                    NomeTurma = m.Turma.Nome,
+                    NomeDisciplina = m.Turma.Disciplina.Nome,
+                    Nota = m.Nota,
+                    Frequencia = m.Frequencia
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
+
+        return Ok(boletim);
     }
 }

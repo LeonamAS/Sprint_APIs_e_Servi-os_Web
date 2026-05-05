@@ -75,9 +75,11 @@ public class ProfessorController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var cpfExiste = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf);
-        if (cpfExiste)
-            return BadRequest(new { Mensagem = "Já existe um professor cadastrado com este CPF." });
+        var cpfExisteProfessor = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf);
+        var cpfExisteAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf);
+
+        if (cpfExisteProfessor || cpfExisteAluno)
+            return BadRequest(new { Mensagem = "Já existe um usuário (Professor ou Aluno) cadastrado com este CPF." });
 
         var novoProfessor = new Professor
         {
@@ -119,9 +121,11 @@ public class ProfessorController : ControllerBase
 
         if (!string.IsNullOrWhiteSpace(dto.Cpf))
         {
-            var cpfExiste = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf && p.Id != id);
-            if (cpfExiste)
-                return BadRequest(new { Mensagem = "Já existe outro professor cadastrado com este CPF." });
+            var cpfExisteProfessor = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf && p.Id != id);
+            var cpfExisteAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf); // Não precisa ignorar o ID aqui, pois são tabelas diferentes
+
+            if (cpfExisteProfessor || cpfExisteAluno)
+                return BadRequest(new { Mensagem = "Já existe outro usuário (Professor ou Aluno) cadastrado com este CPF." });
 
             professor.Cpf = dto.Cpf;
         }

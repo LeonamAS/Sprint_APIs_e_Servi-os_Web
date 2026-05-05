@@ -162,6 +162,41 @@
     ]
   },
   {
+    "ContainingType": "Sprint3.Controllers.AlunoController",
+    "Method": "GetBoletimAluno",
+    "RelativePath": "api/Aluno/{id}/boletim",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Sprint3.DTOs.Response.BoletimAlunoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
     "ContainingType": "Sprint3.Controllers.DisciplinaController",
     "Method": "GetDisciplinas",
     "RelativePath": "api/Disciplina",
@@ -318,53 +353,6 @@
         "StatusCode": 404
       }
     ]
-  },
-  {
-    "ContainingType": "Sprint3.Controllers.EmhsController",
-    "Method": "GetBoletim",
-    "RelativePath": "api/Emhs/aluno/{alunoId}/disciplina/{disciplinaId}/boletim",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "alunoId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "disciplinaId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sprint3.Controllers.EmhsController",
-    "Method": "GetAlunos",
-    "RelativePath": "api/Emhs/alunos",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sprint3.Controllers.EmhsController",
-    "Method": "MatricularAluno",
-    "RelativePath": "api/Emhs/matricular",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "matricula",
-        "Type": "Sprint3.Models.Matricula",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "Sprint3.Controllers.MatriculaController",

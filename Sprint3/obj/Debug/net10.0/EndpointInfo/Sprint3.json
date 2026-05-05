@@ -273,6 +273,66 @@
         }
       }
     },
+    "/api/Aluno/{id}/boletim": {
+      "get": {
+        "tags": [
+          "Aluno"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoletimAlunoDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoletimAlunoDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoletimAlunoDTO"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Disciplina": {
       "get": {
         "tags": [
@@ -520,81 +580,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Emhs/aluno/{alunoId}/disciplina/{disciplinaId}/boletim": {
-      "get": {
-        "tags": [
-          "Emhs"
-        ],
-        "parameters": [
-          {
-            "name": "alunoId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "disciplinaId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Emhs/alunos": {
-      "get": {
-        "tags": [
-          "Emhs"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Emhs/matricular": {
-      "post": {
-        "tags": [
-          "Emhs"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Matricula"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Matricula"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Matricula"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -1123,50 +1108,6 @@
   },
   "components": {
     "schemas": {
-      "Aluno": {
-        "required": [
-          "cpf",
-          "dataNascimento",
-          "id",
-          "matricula",
-          "nome"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nome": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string"
-          },
-          "cpf": {
-            "maxLength": 14,
-            "minLength": 0,
-            "type": "string"
-          },
-          "dataNascimento": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "matricula": {
-            "maxLength": 6,
-            "minLength": 0,
-            "pattern": "^[0-9]*$",
-            "type": "string"
-          },
-          "matriculas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Matricula"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "AlunoResponseDTO": {
         "type": "object",
         "properties": {
@@ -1188,6 +1129,31 @@
           },
           "matricula": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BoletimAlunoDTO": {
+        "type": "object",
+        "properties": {
+          "alunoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nomeAluno": {
+            "type": "string",
+            "nullable": true
+          },
+          "matricula": {
+            "type": "string",
+            "nullable": true
+          },
+          "disciplinas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MatriculaDetalheDTO"
+            },
             "nullable": true
           }
         },
@@ -1328,39 +1294,6 @@
         },
         "additionalProperties": false
       },
-      "Disciplina": {
-        "required": [
-          "cargaHoraria",
-          "id",
-          "nome"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nome": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string"
-          },
-          "cargaHoraria": {
-            "maximum": 500,
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "turmas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Turma"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "DisciplinaResponseDTO": {
         "type": "object",
         "properties": {
@@ -1379,42 +1312,23 @@
         },
         "additionalProperties": false
       },
-      "Matricula": {
-        "required": [
-          "alunoId",
-          "id",
-          "turmaId"
-        ],
+      "MatriculaDetalheDTO": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
+          "nomeDisciplina": {
+            "type": "string",
+            "nullable": true
           },
-          "alunoId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "aluno": {
-            "$ref": "#/components/schemas/Aluno"
-          },
-          "turmaId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "turma": {
-            "$ref": "#/components/schemas/Turma"
+          "nomeTurma": {
+            "type": "string",
+            "nullable": true
           },
           "nota": {
-            "maximum": 10,
-            "minimum": 0,
             "type": "number",
             "format": "double",
             "nullable": true
           },
           "frequencia": {
-            "maximum": 100,
-            "minimum": 0,
             "type": "number",
             "format": "double",
             "nullable": true
@@ -1449,43 +1363,6 @@
         },
         "additionalProperties": { }
       },
-      "Professor": {
-        "required": [
-          "cpf",
-          "especialidade",
-          "id",
-          "nome"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nome": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string"
-          },
-          "cpf": {
-            "maxLength": 14,
-            "minLength": 0,
-            "type": "string"
-          },
-          "especialidade": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "turmas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Turma"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ProfessorResponseDTO": {
         "type": "object",
         "properties": {
@@ -1503,48 +1380,6 @@
           },
           "especialidade": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Turma": {
-        "required": [
-          "disciplinaId",
-          "id",
-          "nome",
-          "professorId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nome": {
-            "maxLength": 20,
-            "minLength": 0,
-            "type": "string"
-          },
-          "professorId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "professor": {
-            "$ref": "#/components/schemas/Professor"
-          },
-          "disciplinaId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "disciplina": {
-            "$ref": "#/components/schemas/Disciplina"
-          },
-          "matriculas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Matricula"
-            },
             "nullable": true
           }
         },
@@ -1667,9 +1502,6 @@
     },
     {
       "name": "Disciplina"
-    },
-    {
-      "name": "Emhs"
     },
     {
       "name": "Matricula"
