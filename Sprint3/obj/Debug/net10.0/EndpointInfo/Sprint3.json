@@ -333,6 +333,37 @@
         }
       }
     },
+    "/api/Auth/registrar": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Auth/login": {
       "post": {
         "tags": [
@@ -1558,27 +1589,42 @@
           }
         },
         "additionalProperties": false
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "login": {
+            "type": "string",
+            "nullable": true
+          },
+          "senhaHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "regra": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Bearer {seu token}",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
       }
     }
   },
-  "tags": [
+  "security": [
     {
-      "name": "Aluno"
-    },
-    {
-      "name": "Auth"
-    },
-    {
-      "name": "Disciplina"
-    },
-    {
-      "name": "Matricula"
-    },
-    {
-      "name": "Professor"
-    },
-    {
-      "name": "Turma"
+      "Bearer": [ ]
     }
   ]
 }

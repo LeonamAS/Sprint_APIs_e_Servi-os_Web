@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Sprint3.Data;
 using Sprint3.DTOs.Requests;
+using Sprint3.Models;
 using Sprint3.Services;
 
 namespace Sprint3.Controllers
@@ -17,6 +18,18 @@ namespace Sprint3.Controllers
         {
             _context = context;
             _tokenService = tokenService;
+        }
+
+        [HttpPost("registrar")]
+        public async Task<IActionResult> Registrar([FromBody] Usuario novoUsuario)
+        {
+            if (await _context.Usuarios.AnyAsync(u => u.Login == novoUsuario.Login))
+                return BadRequest("Este usuário já existe.");
+
+            _context.Usuarios.Add(novoUsuario);
+            await _context.SaveChangesAsync();
+
+            return Ok("Usuário cadastrado com sucesso!");
         }
 
         [HttpPost("login")]

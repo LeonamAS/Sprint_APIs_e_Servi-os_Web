@@ -228,6 +228,22 @@
     ]
   },
   {
+    "ContainingType": "Sprint3.Controllers.AuthController",
+    "Method": "Registrar",
+    "RelativePath": "api/Auth/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novoUsuario",
+        "Type": "Sprint3.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sprint3.Controllers.DisciplinaController",
     "Method": "GetDisciplinas",
     "RelativePath": "api/Disciplina",

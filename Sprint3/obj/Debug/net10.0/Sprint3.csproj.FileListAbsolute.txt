@@ -7,7 +7,6 @@ C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.runtimecon
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.pdb
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Humanizer.dll
-C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.Build.Locator.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
@@ -257,3 +256,11 @@ E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\refint\Sprint3.dll
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.pdb
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.genruntimeconfig.cache
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\ref\Sprint3.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
