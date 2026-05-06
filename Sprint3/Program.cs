@@ -15,7 +15,6 @@ builder.Services.AddDbContext<EmhsDbContext>(options => options.UseMySql(connect
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<EmhsService>();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -65,6 +64,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddScoped<TokenService>();
 
 var app = builder.Build();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

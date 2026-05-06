@@ -10,7 +10,7 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Administrador")]
+[Authorize(Roles = "administrador")]
 public class TurmaController : ControllerBase
 {
     private readonly EmhsDbContext _context;

@@ -21,15 +21,22 @@ namespace Sprint3.Controllers
         }
 
         [HttpPost("registrar")]
-        public async Task<IActionResult> Registrar([FromBody] Usuario novoUsuario)
+        public async Task<IActionResult> Registrar([FromBody] CreateUsuarioDTO registro)
         {
-            if (await _context.Usuarios.AnyAsync(u => u.Login == novoUsuario.Login))
-                return BadRequest("Este usuário já existe.");
+            if (await _context.Usuarios.AnyAsync(u => u.Login == registro.Login))
+                return BadRequest(new { Mensagem = "Este usuário já existe." });
+
+            var novoUsuario = new Usuario
+            {
+                Login = registro.Login,
+                Senha = registro.Senha,
+                TipoUsuario = registro.TipoUsuario.ToLower()
+            };
 
             _context.Usuarios.Add(novoUsuario);
             await _context.SaveChangesAsync();
 
-            return Ok("Usuário cadastrado com sucesso!");
+            return Ok(new { Mensagem = "Usuário cadastrado com sucesso!" });
         }
 
         [HttpPost("login")]
@@ -43,7 +50,7 @@ namespace Sprint3.Controllers
             if (usuario == null)
                 return Unauthorized(new { Mensagem = "Usuário ou senha inválidos." });
 
-            bool senhaCorreta = login.Senha == usuario.SenhaHash;
+            bool senhaCorreta = login.Senha == usuario.Senha;
 
             if (!senhaCorreta)
                 return Unauthorized(new { Mensagem = "Usuário ou senha inválidos." });
@@ -53,7 +60,7 @@ namespace Sprint3.Controllers
             return Ok(new
             {
                 Usuario = usuario.Login,
-                Regra = usuario.Regra,
+                TipoUsuario = usuario.TipoUsuario,
                 Token = tokenString,
                 ExpiraEm = DateTime.UtcNow.AddHours(2)
             });

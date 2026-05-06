@@ -10,7 +10,7 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Aluno")]
+[Authorize(Roles = "aluno")]
 public class AlunoController : ControllerBase
 {
     private readonly EmhsDbContext _context;

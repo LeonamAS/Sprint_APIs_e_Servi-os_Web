@@ -10,7 +10,7 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Professor")]
+[Authorize(Roles = "professor")]
 public class MatriculaController : ControllerBase
 {
     private readonly EmhsDbContext _context;

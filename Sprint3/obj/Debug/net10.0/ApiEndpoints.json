@@ -236,8 +236,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "novoUsuario",
-        "Type": "Sprint3.Models.Usuario",
+        "Name": "registro",
+        "Type": "Sprint3.DTOs.Requests.CreateUsuarioDTO",
         "IsRequired": true
       }
     ],

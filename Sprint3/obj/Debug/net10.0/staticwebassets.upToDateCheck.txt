@@ -1,0 +1,4 @@
+wwwroot\app.js
+wwwroot\index.html
+E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\app.js
+E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\index.html

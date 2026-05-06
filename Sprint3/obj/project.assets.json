@@ -15,18 +15,18 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.7": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/9.0.6": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.0.1"
         },
         "compile": {
-          "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
             "related": ".xml"
           }
         },
@@ -869,19 +869,19 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.7": {
-      "sha512": "g8klpd7OFJfJOq1EJKcBO8C8I8Dp0QUWoKDPUvvJYe+xunVyBHq6YxfF2CAc6+rkniV25iaWl+6RK87c25n4lA==",
+    "Microsoft.AspNetCore.Authentication.JwtBearer/9.0.6": {
+      "sha512": "nH1mrzr77pk+n1E5+A/0KlzkNhqy3LS3gUGEjJf0PQE6PZAc3pr8rLwUATcaJMr/12qsxHT+kcvRZMxc4bxFpA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.7",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/9.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
-        "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.10.0.7.nupkg.sha512",
+        "lib/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.9.0.6.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
@@ -2756,7 +2756,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.7",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.6",
       "Microsoft.EntityFrameworkCore >= 9.0.15",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.15",
       "Microsoft.IdentityModel.Tokens >= 8.18.0",
@@ -2768,23 +2768,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\020.747731\\.nuget\\packages\\": {},
+    "C:\\Users\\Leonam Sales\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Sprint3.csproj",
+      "projectUniqueName": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Sprint3.csproj",
       "projectName": "Sprint3",
-      "projectPath": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\Sprint3.csproj",
-      "packagesPath": "C:\\Users\\020.747731\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\020.747731\\BackEnd\\Sprint3\\Sprint3\\obj\\",
+      "projectPath": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\Sprint3.csproj",
+      "packagesPath": "C:\\Users\\Leonam Sales\\.nuget\\packages\\",
+      "outputPath": "E:\\Leonam\\BACK_END\\Sprint3\\Sprint3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\020.747731\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leonam Sales\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2793,11 +2793,11 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -2816,11 +2816,12 @@
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[10.0.7, )"
+            "version": "[9.0.6, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -2876,7 +2877,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

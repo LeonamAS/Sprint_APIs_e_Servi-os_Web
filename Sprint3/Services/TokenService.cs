@@ -23,7 +23,7 @@ namespace Sprint3.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
                 new Claim(ClaimTypes.Name, usuario.Login),
-                new Claim(ClaimTypes.Role, usuario.Regra)
+                new Claim(ClaimTypes.Role, usuario.TipoUsuario)
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

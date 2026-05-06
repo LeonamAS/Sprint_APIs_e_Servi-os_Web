@@ -342,17 +342,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "$ref": "#/components/schemas/CreateUsuarioDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "$ref": "#/components/schemas/CreateUsuarioDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "$ref": "#/components/schemas/CreateUsuarioDTO"
               }
             }
           }
@@ -1376,6 +1376,31 @@
         },
         "additionalProperties": false
       },
+      "CreateUsuarioDTO": {
+        "required": [
+          "login",
+          "senha",
+          "tipoUsuario"
+        ],
+        "type": "object",
+        "properties": {
+          "login": {
+            "minLength": 1,
+            "pattern": "^[a-zA-Z]+$",
+            "type": "string"
+          },
+          "senha": {
+            "minLength": 8,
+            "pattern": "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[\\W_]).+$",
+            "type": "string"
+          },
+          "tipoUsuario": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "DisciplinaResponseDTO": {
         "type": "object",
         "properties": {
@@ -1585,28 +1610,6 @@
           "disciplinaId": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Usuario": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "login": {
-            "type": "string",
-            "nullable": true
-          },
-          "senhaHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "regra": {
-            "type": "string",
             "nullable": true
           }
         },

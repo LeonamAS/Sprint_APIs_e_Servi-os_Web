@@ -264,3 +264,6 @@ C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.Identity
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.runtime.json
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-sx86lrdl51-sx86lrdl51.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-md4u6glzis-md4u6glzis.gz
