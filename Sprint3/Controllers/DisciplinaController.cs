@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sprint3.Data;
 using Sprint3.DTOs.Requests;
@@ -9,7 +10,7 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-// [Authorize] // Descomente caso o JWT já esteja configurado no Program.cs
+[Authorize(Roles = "Administrador")]
 public class DisciplinaController : ControllerBase
 {
     private readonly EmhsDbContext _context;

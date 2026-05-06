@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sprint3.Data;
 using Sprint3.DTOs.Requests;
@@ -9,6 +10,7 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Administrador")]
 public class TurmaController : ControllerBase
 {
     private readonly EmhsDbContext _context;

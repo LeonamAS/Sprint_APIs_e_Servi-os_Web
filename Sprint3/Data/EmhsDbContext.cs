@@ -12,6 +12,7 @@ public class EmhsDbContext : DbContext
     public DbSet<Disciplina> Disciplinas { get; set; }
     public DbSet<Turma> Turmas { get; set; }
     public DbSet<Matricula> Matriculas { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }  
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -26,34 +27,28 @@ public class EmhsDbContext : DbContext
                 .HasPrecision(5, 2);
         });
 
-        // ==========================================
-        // Configurações de Relacionamentos: Turma
-        // ==========================================
         modelBuilder.Entity<Turma>()
             .HasOne(t => t.Professor)
             .WithMany(p => p.Turmas)
             .HasForeignKey(t => t.ProfessorId)
-            .OnDelete(DeleteBehavior.Restrict); // Evita deletar professor com turmas ativas
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Turma>()
             .HasOne(t => t.Disciplina)
             .WithMany(d => d.Turmas)
             .HasForeignKey(t => t.DisciplinaId)
-            .OnDelete(DeleteBehavior.Restrict); // Evita deletar disciplina vinculada a turmas
+            .OnDelete(DeleteBehavior.Restrict);
 
-        // ==========================================
-        // Configurações de Relacionamentos: Matrícula
-        // ==========================================
         modelBuilder.Entity<Matricula>()
             .HasOne(m => m.Aluno)
             .WithMany(a => a.Matriculas)
             .HasForeignKey(m => m.AlunoId)
-            .OnDelete(DeleteBehavior.Cascade); // Se o aluno for deletado, suas matrículas/notas também são
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Matricula>()
             .HasOne(m => m.Turma)
             .WithMany(t => t.Matriculas)
             .HasForeignKey(m => m.TurmaId)
-            .OnDelete(DeleteBehavior.Cascade); // Se a turma for deletada, limpa os registros dela
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
