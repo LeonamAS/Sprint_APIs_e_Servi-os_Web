@@ -49,11 +49,19 @@ document.getElementById('formLogin').addEventListener('submit', async function (
         const result = await response.json();
 
         if (response.ok) {
-            // Salva o token no navegador para usarmos depois!
             localStorage.setItem("meuToken", result.token);
-            alert(`Bem-vindo, ${result.usuario}! Seu token foi salvo no navegador.`);
+
+            if (result.tipoUsuario === "aluno") {
+                window.location.href = "dashboard_aluno.html";
+            } else if (result.tipoUsuario === "professor") {
+                // window.location.href = dashboard_professor.html
+                alert("Bem-vindo Professor! Tela em construção.");
+            } else {
+                //window.location.href = dashboard_admin.html
+                alert("Bem-vindo Admin! Tela em construção.");
+            }
         } else {
-            alert("Erro: " + result.mensagem);
+                alert("Erro: " + result.mensagem);
         }
     } catch (error) {
         alert("Erro ao conectar com a API.");

@@ -10,7 +10,6 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "professor")]
 public class MatriculaController : ControllerBase
 {
     private readonly EmhsDbContext _context;
@@ -21,6 +20,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "professor")]
     public async Task<IActionResult> GetMatriculas()
     {
         var matriculas = await _context.Matriculas
@@ -43,6 +43,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "professor,aluno")]
     public async Task<IActionResult> GetMatriculaById(int id)
     {
         var matricula = await _context.Matriculas
@@ -69,6 +70,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "professor")]
     public async Task<IActionResult> PostMatricula([FromBody] CreateMatriculaDTO dto)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -100,6 +102,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpPatch("{id}")]
+    [Authorize(Roles = "professor")]
     public async Task<IActionResult> PatchMatricula(int id, [FromBody] UpdateMatriculaDTO dto)
     {
         var matricula = await _context.Matriculas.FindAsync(id);
@@ -116,6 +119,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "professor")]
     public async Task<IActionResult> DeleteMatricula(int id)
     {
         var matricula = await _context.Matriculas.FindAsync(id);
