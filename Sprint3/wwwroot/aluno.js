@@ -1,20 +1,32 @@
-﻿const token = localStorage.getItem("meuToken");
+﻿// 1. VERIFICAÇÃO DE SEGURANÇA
+const token = localStorage.getItem("meuToken");
 
 if (!token) {
     alert("Acesso negado. Faça login primeiro.");
     window.location.href = "index.html";
 }
 
+// 2. FUNÇÃO DE LOGOUT
 document.getElementById('btnSair').addEventListener('click', () => {
     localStorage.removeItem("meuToken");
-    window.location.href = "index.html"; 
+    window.location.href = "index.html";
 });
 
-// 3. BUSCAR OS DADOS NA API
-async function carregarMatriculas() {
+// 3. BUSCAR BOLETIM ESPECÍFICO
+document.getElementById('formBoletim').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Evita recarregar a página
+
+    const matriculaId = document.getElementById('inputMatricula').value;
+    const cardResultado = document.getElementById('cardResultado');
+    const divConteudo = document.getElementById('conteudoBoletim');
+
+    // Mostra estado de carregamento
+    cardResultado.classList.remove('d-none');
+    divConteudo.innerHTML = '<p class="text-center text-muted">Buscando informações...</p>';
+
     try {
-        // Faz a requisição enviando o Token no cabeçalho
-        const response = await fetch('/api/matricula', {
+        // Bate no seu endpoint GET /api/matricula/{id}
+        const response = await fetch(`/api/matricula/${matriculaId}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -23,38 +35,28 @@ async function carregarMatriculas() {
         });
 
         if (response.ok) {
-            const matriculas = await response.json();
-            preencherTabela(matriculas);
+            const boletim = await response.json();
+
+            // Monta o visual do boletim
+            divConteudo.innerHTML = `
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Aluno:</strong> ${boletim.nomeAluno}</li>
+                    <li class="list-group-item"><strong>Turma:</strong> ${boletim.nomeTurma}</li>
+                    <li class="list-group-item"><strong>Nota:</strong> <span class="badge ${boletim.nota >= 6 ? 'bg-success' : 'bg-danger'}">${boletim.nota}</span></li>
+                    <li class="list-group-item"><strong>Frequência:</strong> ${boletim.frequencia}%</li>
+                </ul>
+            `;
+        } else if (response.status === 404) {
+            divConteudo.innerHTML = '<div class="alert alert-warning">Matrícula não encontrada. Verifique o número digitado.</div>';
         } else if (response.status === 401 || response.status === 403) {
             alert("Sua sessão expirou ou você não tem permissão.");
             localStorage.removeItem("meuToken");
             window.location.href = "index.html";
+        } else {
+            divConteudo.innerHTML = '<div class="alert alert-danger">Erro ao buscar os dados.</div>';
         }
     } catch (error) {
-        console.error("Erro ao carregar dados:", error);
+        console.error("Erro na API:", error);
+        divConteudo.innerHTML = '<div class="alert alert-danger">Erro de conexão com o servidor.</div>';
     }
-}
-
-// 4. PREENCHER A TABELA NO HTML
-function preencherTabela(matriculas) {
-    const tbody = document.getElementById('tabelaMatriculas');
-    tbody.innerHTML = ''; // Limpa a mensagem de "Carregando..."
-
-    if (matriculas.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="3" class="text-center">Nenhuma matrícula encontrada.</td></tr>';
-        return;
-    }
-
-    matriculas.forEach(m => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${m.nomeTurma}</td>
-            <td>${m.nota}</td>
-            <td>${m.frequencia}%</td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-// Executa a busca assim que a página carrega
-carregarMatriculas();
+});

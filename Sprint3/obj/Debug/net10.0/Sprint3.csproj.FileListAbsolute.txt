@@ -1,5 +1,4 @@
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\appsettings.Development.json
-C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\appsettings.json
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.endpoints.json
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.exe
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.deps.json
@@ -269,3 +268,8 @@ E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-m
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-85pz73scn6-85pz73scn6.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-8wpjjnqzjp-8wpjjnqzjp.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-c0288zl2u7-c0288zl2u7.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.runtime.json
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-zd5owo1v2l-zd5owo1v2l.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-carzasdapp-carzasdapp.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-efqykodrw9-efqykodrw9.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-q7ot7g0e5a-q7ot7g0e5a.gz

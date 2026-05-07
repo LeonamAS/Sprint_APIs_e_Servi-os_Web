@@ -1,8 +1,11 @@
-wwwroot\app.js
 wwwroot\dashboard_aluno.html
-wwwroot\index.html
 wwwroot\aluno.js
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\app.js
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\dashboard_aluno.html
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\index.html
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\aluno.js
+wwwroot\logo1.jpg
+wwwroot\app.js
+wwwroot\image_6.jpg
+wwwroot\index.html
+wwwroot\logo2.jpg
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\dashboard_aluno.html
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\aluno.js
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\app.js
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\index.html

@@ -67,3 +67,27 @@ document.getElementById('formLogin').addEventListener('submit', async function (
         alert("Erro ao conectar com a API.");
     }
 });
+
+// Alternar entre Login e Registro
+document.getElementById('linkIrParaRegistro').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('cardLogin').classList.add('d-none');
+    document.getElementById('cardRegistro').classList.remove('d-none');
+});
+
+document.getElementById('linkIrParaLogin').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('cardRegistro').classList.add('d-none');
+    document.getElementById('cardLogin').classList.remove('d-none');
+});
+
+function toggleSenha(inputId, btnElement) {
+    const input = document.getElementById(inputId);
+    if (input.type === 'password') {
+        input.type = 'text';
+        btnElement.textContent = 'Ocultar';
+    } else {
+        input.type = 'password';
+        btnElement.textContent = 'Mostrar';
+    }
+}
