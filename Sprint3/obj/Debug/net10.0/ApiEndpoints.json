@@ -163,16 +163,16 @@
   },
   {
     "ContainingType": "Sprint3.Controllers.AlunoController",
-    "Method": "GetBoletimAluno",
-    "RelativePath": "api/Aluno/{id}/boletim",
+    "Method": "GetBoletimAlunoPorNome",
+    "RelativePath": "api/Aluno/boletim/busca-nome",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

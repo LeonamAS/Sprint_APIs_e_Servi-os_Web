@@ -131,7 +131,6 @@ E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.csproj.CoreCompileI
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.MvcApplicationPartsAssemblyInfo.cs
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.MvcApplicationPartsAssemblyInfo.cache
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.sourcelink.json
-E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\appsettings.Development.json
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\appsettings.json
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.endpoints.json
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.exe
@@ -264,12 +263,12 @@ C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.Identity
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.runtime.json
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-md4u6glzis-md4u6glzis.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-85pz73scn6-85pz73scn6.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-8wpjjnqzjp-8wpjjnqzjp.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-c0288zl2u7-c0288zl2u7.gz
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.runtime.json
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-zd5owo1v2l-zd5owo1v2l.gz
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-carzasdapp-carzasdapp.gz
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-efqykodrw9-efqykodrw9.gz
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-q7ot7g0e5a-q7ot7g0e5a.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-zd5owo1v2l-zd5owo1v2l.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-kuhinelkag-kuhinelkag.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-2c06bk9x4q-2c06bk9x4q.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-8546uh3gs8-8546uh3gs8.gz

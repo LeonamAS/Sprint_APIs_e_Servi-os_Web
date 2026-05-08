@@ -273,19 +273,17 @@
         }
       }
     },
-    "/api/Aluno/{id}/boletim": {
+    "/api/Aluno/boletim/busca-nome": {
       "get": {
         "tags": [
           "Aluno"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "nome",
+            "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],

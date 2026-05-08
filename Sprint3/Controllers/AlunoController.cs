@@ -160,18 +160,17 @@ public class AlunoController : ControllerBase
         return NoContent();
     }
 
-    [HttpGet("{id}/boletim")]
+    [HttpGet("boletim/busca-nome")]
     [ProducesResponseType(typeof(BoletimAlunoDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetBoletimAluno(int id)
+    public async Task<IActionResult> GetBoletimAlunoPorNome([FromQuery] string nome)
     {
-        var alunoExiste = await _context.Alunos.AnyAsync(a => a.Id == id);
-        if (!alunoExiste)
-            return NotFound(new { Mensagem = "Aluno não encontrado." });
+        if (string.IsNullOrWhiteSpace(nome))
+            return BadRequest(new { Mensagem = "O nome não pode estar vazio." });
 
         var boletim = await _context.Alunos
             .AsNoTracking()
-            .Where(a => a.Id == id)
+            .Where(a => a.Nome.ToLower().Contains(nome.ToLower()))
             .Select(a => new BoletimAlunoDTO
             {
                 AlunoId = a.Id,
@@ -186,6 +185,9 @@ public class AlunoController : ControllerBase
                 }).ToList()
             })
             .FirstOrDefaultAsync();
+
+        if (boletim == null)
+            return NotFound(new { Mensagem = "Aluno não encontrado." });
 
         return Ok(boletim);
     }
