@@ -5,7 +5,7 @@ namespace Sprint3.DTOs.Requests;
 public class CreateTurmaDTO
 {
     [Required(ErrorMessage = "O nome da turma é obrigatório.")]
-    [StringLength(20, ErrorMessage = "O nome da turma não pode exceder 20 caracteres.")]
+    [StringLength(30, ErrorMessage = "O nome da turma não pode exceder 30 caracteres.")]
     public string Nome { get; set; }
 
     [Required(ErrorMessage = "O ID do professor é obrigatório.")]

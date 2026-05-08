@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sprint3</name>
+    </assembly>
+    <members>
+        <member name="M:Sprint3.Controllers.AlunoController.GetAlunos">
+            <summary>
+            Lista todos os alunos cadastrados.
+            </summary>
+            <response code="200">Uma lista de alunos simplificada.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.AlunoController.GetAlunoById(System.Int32)">
+            <summary>
+            Obtém os detalhes de um aluno específico pelo ID.
+            </summary>
+            <param name="id">ID numérico do aluno.</param>
+            <response code="200">Retorna o aluno encontrado.</response>
+            <response code="404">Se o aluno não for encontrado.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.AlunoController.PostAluno(Sprint3.DTOs.Requests.CreateAlunoDTO)">
+            <summary>
+            Cadastra um novo aluno.
+            </summary>
+            <remarks>
+            Exemplo de requisição:
+            
+                POST /api/Aluno
+                {
+                   "nome": "João Silva",
+                   "cpf": "12345678901",
+                   "dataNascimento": "2005-01-01",
+                   "matricula": "A2024001"
+                }
+            </remarks>
+            <response code="201">Aluno criado com sucesso.</response>
+            <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.AlunoController.PatchAluno(System.Int32,Sprint3.DTOs.Requests.UpdateAlunoDTO)">
+            <summary>
+            Atualiza dados parciais de um aluno.
+            </summary>
+        </member>
+        <member name="M:Sprint3.Controllers.AlunoController.DeleteAluno(System.Int32)">
+            <summary>
+            Remove um aluno do sistema.
+            </summary>
+        </member>
+        <member name="M:Sprint3.Controllers.AlunoController.GetBoletimAlunoPorNome(System.String)">
+            <summary>
+            Busca o boletim escolar de um aluno através do nome.
+            </summary>
+            <param name="nome">Nome ou parte do nome do aluno.</param>
+        </member>
+        <member name="M:Sprint3.Controllers.DisciplinaController.GetDisciplinas">
+            <summary>
+            Lista todos as disciplinas cadastradas.
+            </summary>
+            <response code="200">Uma lista simplificada das disciplinas.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.DisciplinaController.GetDisciplinaById(System.Int32)">
+            <summary>
+            Obtém os detalhes de uma disciplina específica pelo ID.
+            </summary>
+            <param name="id">ID numérico da disciplina.</param>
+            <response code="200">Retorna a disciplina encontrada.</response>
+            <response code="404">Se a disciplina não for encontrada.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.DisciplinaController.PostDisciplina(Sprint3.DTOs.Requests.CreateDisciplinaDTO)">
+            <summary>
+            Cadastra uma nova disciplina.
+            </summary>
+            <remarks>
+            Exemplo de requisição:
+            
+                POST /api/Disciplina
+                {
+                   "nome": "Algoritmos e Estruturas de Dados",
+                   "cargaHoraria": 80
+                }
+            </remarks>
+            <response code="201">Aluno criado com sucesso.</response>
+            <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
+        </member>
+        <member name="T:Sprint3.Migrations.CriandoTabelasIniciais">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.CriandoTabelasIniciais.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.CriandoTabelasIniciais.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.CriandoTabelasIniciais.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sprint3.Migrations.AtualizandoTabelaMatriculas">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AtualizandoTabelaMatriculas.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AtualizandoTabelaMatriculas.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AtualizandoTabelaMatriculas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sprint3.Migrations.CriandoTabelaUsuario">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.CriandoTabelaUsuario.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.CriandoTabelaUsuario.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.CriandoTabelaUsuario.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sprint3.Migrations.AtualizandoTabelaUsuarios">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AtualizandoTabelaUsuarios.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AtualizandoTabelaUsuarios.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AtualizandoTabelaUsuarios.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sprint3.Migrations.AjusteNomeTurma">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AjusteNomeTurma.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AjusteNomeTurma.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.AjusteNomeTurma.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>

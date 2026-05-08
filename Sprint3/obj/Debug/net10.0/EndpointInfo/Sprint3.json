@@ -10,9 +10,10 @@
         "tags": [
           "Aluno"
         ],
+        "summary": "Lista todos os alunos cadastrados.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Uma lista de alunos simplificada.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -46,6 +47,8 @@
         "tags": [
           "Aluno"
         ],
+        "summary": "Cadastra um novo aluno.",
+        "description": "Exemplo de requisição:\r\n\r\n    POST /api/Aluno\r\n    {\r\n       \"nome\": \"João Silva\",\r\n       \"cpf\": \"12345678901\",\r\n       \"dataNascimento\": \"2005-01-01\",\r\n       \"matricula\": \"A2024001\"\r\n    }",
         "requestBody": {
           "content": {
             "application/json": {
@@ -67,10 +70,10 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Aluno criado com sucesso."
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Dados inválidos ou CPF/Matrícula já existente.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -97,10 +100,12 @@
         "tags": [
           "Aluno"
         ],
+        "summary": "Obtém os detalhes de um aluno específico pelo ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico do aluno.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -110,7 +115,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Retorna o aluno encontrado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -130,7 +135,7 @@
             }
           },
           "404": {
-            "description": "Not Found",
+            "description": "Se o aluno não for encontrado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -155,6 +160,7 @@
         "tags": [
           "Aluno"
         ],
+        "summary": "Atualiza dados parciais de um aluno.",
         "parameters": [
           {
             "name": "id",
@@ -235,6 +241,7 @@
         "tags": [
           "Aluno"
         ],
+        "summary": "Remove um aluno do sistema.",
         "parameters": [
           {
             "name": "id",
@@ -278,10 +285,12 @@
         "tags": [
           "Aluno"
         ],
+        "summary": "Busca o boletim escolar de um aluno através do nome.",
         "parameters": [
           {
             "name": "nome",
             "in": "query",
+            "description": "Nome ou parte do nome do aluno.",
             "schema": {
               "type": "string"
             }
@@ -418,9 +427,10 @@
         "tags": [
           "Disciplina"
         ],
+        "summary": "Lista todos as disciplinas cadastradas.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Uma lista simplificada das disciplinas.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -457,6 +467,8 @@
         "tags": [
           "Disciplina"
         ],
+        "summary": "Cadastra uma nova disciplina.",
+        "description": "Exemplo de requisição:\r\n\r\n    POST /api/Disciplina\r\n    {\r\n       \"nome\": \"Algoritmos e Estruturas de Dados\",\r\n       \"cargaHoraria\": 80\r\n    }",
         "requestBody": {
           "content": {
             "application/json": {
@@ -478,10 +490,10 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Aluno criado com sucesso."
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Dados inválidos ou CPF/Matrícula já existente.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -508,10 +520,12 @@
         "tags": [
           "Disciplina"
         ],
+        "summary": "Obtém os detalhes de uma disciplina específica pelo ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico da disciplina.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -521,7 +535,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Retorna a disciplina encontrada.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -541,7 +555,7 @@
             }
           },
           "404": {
-            "description": "Not Found",
+            "description": "Se a disciplina não for encontrada.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1359,7 +1373,7 @@
         "type": "object",
         "properties": {
           "nome": {
-            "maxLength": 20,
+            "maxLength": 30,
             "minLength": 0,
             "type": "string"
           },
@@ -1617,7 +1631,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Bearer {seu token}",
+        "description": "{seu token}",
         "scheme": "Bearer",
         "bearerFormat": "JWT"
       }

@@ -10,7 +10,7 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "administrador,aluno")]
+[Authorize(Roles = "administrador,aluno,professor")]
 public class AlunoController : ControllerBase
 {
     private readonly EmhsDbContext _context;
@@ -20,8 +20,13 @@ public class AlunoController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Lista todos os alunos cadastrados.
+    /// </summary>
+    /// <response code="200">Uma lista de alunos simplificada.</response>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<AlunoResponseDTO>), StatusCodes.Status200OK)]
+    [Authorize(Roles = "administrador,professor")]
     public async Task<IActionResult> GetAlunos()
     {
         var alunos = await _context.Alunos
@@ -39,9 +44,16 @@ public class AlunoController : ControllerBase
         return Ok(alunos);
     }
 
+    /// <summary>
+    /// Obtém os detalhes de um aluno específico pelo ID.
+    /// </summary>
+    /// <param name="id">ID numérico do aluno.</param>
+    /// <response code="200">Retorna o aluno encontrado.</response>
+    /// <response code="404">Se o aluno não for encontrado.</response>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(AlunoResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize(Roles = "administrador,professor")]
     public async Task<IActionResult> GetAlunoById(int id)
     {
         var aluno = await _context.Alunos
@@ -63,9 +75,26 @@ public class AlunoController : ControllerBase
         return Ok(aluno);
     }
 
+    /// <summary>
+    /// Cadastra um novo aluno.
+    /// </summary>
+    /// <remarks>
+    /// Exemplo de requisição:
+    /// 
+    ///     POST /api/Aluno
+    ///     {
+    ///        "nome": "João Silva",
+    ///        "cpf": "12345678901",
+    ///        "dataNascimento": "2005-01-01",
+    ///        "matricula": "A2024001"
+    ///     }
+    /// </remarks>
+    /// <response code="201">Aluno criado com sucesso.</response>
+    /// <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> PostAluno([FromBody] CreateAlunoDTO dto)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -105,10 +134,14 @@ public class AlunoController : ControllerBase
         return CreatedAtAction(nameof(GetAlunoById), new { id = novoAluno.Id }, responseDto);
     }
 
+    /// <summary>
+    /// Atualiza dados parciais de um aluno.
+    /// </summary>
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> PatchAluno(int id, [FromBody] UpdateAlunoDTO dto)
     {
         var aluno = await _context.Alunos.FindAsync(id);
@@ -147,9 +180,13 @@ public class AlunoController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Remove um aluno do sistema.
+    /// </summary>
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> DeleteAluno(int id)
     {
         var aluno = await _context.Alunos.FindAsync(id);
@@ -160,6 +197,10 @@ public class AlunoController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Busca o boletim escolar de um aluno através do nome.
+    /// </summary>
+    /// <param name="nome">Nome ou parte do nome do aluno.</param>
     [HttpGet("boletim/busca-nome")]
     [ProducesResponseType(typeof(BoletimAlunoDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

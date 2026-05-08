@@ -20,6 +20,10 @@ public class DisciplinaController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Lista todos as disciplinas cadastradas.
+    /// </summary>
+    /// <response code="200">Uma lista simplificada das disciplinas.</response>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<DisciplinaResponseDTO>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -41,11 +45,16 @@ public class DisciplinaController : ControllerBase
         }
         catch (Exception ex)
         {
-            // Aqui o ideal seria logar o erro: _logger.LogError(ex, "Erro ao buscar disciplinas.");
             return StatusCode(500, "Ocorreu um erro interno ao processar a requisição.");
         }
     }
 
+    /// <summary>
+    /// Obtém os detalhes de uma disciplina específica pelo ID.
+    /// </summary>
+    /// <param name="id">ID numérico da disciplina.</param>
+    /// <response code="200">Retorna a disciplina encontrada.</response>
+    /// <response code="404">Se a disciplina não for encontrada.</response>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(DisciplinaResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -68,6 +77,20 @@ public class DisciplinaController : ControllerBase
         return Ok(disciplina);
     }
 
+    /// <summary>
+    /// Cadastra uma nova disciplina.
+    /// </summary>
+    /// <remarks>
+    /// Exemplo de requisição:
+    /// 
+    ///     POST /api/Disciplina
+    ///     {
+    ///        "nome": "Algoritmos e Estruturas de Dados",
+    ///        "cargaHoraria": 80
+    ///     }
+    /// </remarks>
+    /// <response code="201">Aluno criado com sucesso.</response>
+    /// <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
