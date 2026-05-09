@@ -197,6 +197,35 @@
     ]
   },
   {
+    "ContainingType": "Sprint3.Controllers.AlunoController",
+    "Method": "GetMeuBoletim",
+    "RelativePath": "api/Aluno/meu-boletim",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Sprint3.DTOs.Response.BoletimAlunoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
     "ContainingType": "Sprint3.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -205,7 +234,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "login",
+        "Name": "dto",
         "Type": "Sprint3.DTOs.Requests.LoginDTO",
         "IsRequired": true
       }
@@ -236,7 +265,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "registro",
+        "Name": "dto",
         "Type": "Sprint3.DTOs.Requests.CreateUsuarioDTO",
         "IsRequired": true
       }

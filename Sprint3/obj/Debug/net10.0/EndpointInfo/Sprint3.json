@@ -340,6 +340,56 @@
         }
       }
     },
+    "/api/Aluno/meu-boletim": {
+      "get": {
+        "tags": [
+          "Aluno"
+        ],
+        "summary": "Busca o boletim do aluno logado usando o CPF salvo no Token JWT.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoletimAlunoDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoletimAlunoDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoletimAlunoDTO"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Auth/registrar": {
       "post": {
         "tags": [
@@ -1390,24 +1440,20 @@
       },
       "CreateUsuarioDTO": {
         "required": [
-          "login",
-          "senha",
-          "tipoUsuario"
+          "cpf",
+          "senha"
         ],
         "type": "object",
         "properties": {
-          "login": {
-            "minLength": 1,
-            "pattern": "^[a-zA-Z]+$",
+          "cpf": {
+            "maxLength": 14,
+            "minLength": 0,
+            "pattern": "^\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}$",
             "type": "string"
           },
           "senha": {
             "minLength": 8,
             "pattern": "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[\\W_]).+$",
-            "type": "string"
-          },
-          "tipoUsuario": {
-            "minLength": 1,
             "type": "string"
           }
         },
@@ -1434,7 +1480,7 @@
       "LoginDTO": {
         "type": "object",
         "properties": {
-          "usuario": {
+          "cpf": {
             "type": "string",
             "nullable": true
           },

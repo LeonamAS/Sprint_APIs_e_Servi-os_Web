@@ -232,4 +232,42 @@ public class AlunoController : ControllerBase
 
         return Ok(boletim);
     }
+
+    /// <summary>
+    /// Busca o boletim do aluno logado usando o CPF salvo no Token JWT.
+    /// </summary>
+    [HttpGet("meu-boletim")]
+    [Authorize(Roles = "aluno")]
+    [ProducesResponseType(typeof(BoletimAlunoDTO), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetMeuBoletim()
+    {
+        var cpfLogado = User.Identity?.Name;
+
+        if (string.IsNullOrEmpty(cpfLogado))
+            return Unauthorized(new { Mensagem = "Não foi possível identificar o usuário logado." });
+
+        var boletim = await _context.Alunos
+            .AsNoTracking()
+            .Where(a => a.Cpf == cpfLogado)
+            .Select(a => new BoletimAlunoDTO
+            {
+                AlunoId = a.Id,
+                NomeAluno = a.Nome,
+                Matricula = a.Matricula,
+                Disciplinas = a.Matriculas.Select(m => new MatriculaDetalheDTO
+                {
+                    NomeTurma = m.Turma.Nome,
+                    NomeDisciplina = m.Turma.Disciplina.Nome,
+                    Nota = m.Nota,
+                    Frequencia = m.Frequencia
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
+
+        if (boletim == null)
+            return NotFound(new { Mensagem = "Nenhum aluno encontrado para o CPF cadastrado neste login." });
+
+        return Ok(boletim);
+    }
 }

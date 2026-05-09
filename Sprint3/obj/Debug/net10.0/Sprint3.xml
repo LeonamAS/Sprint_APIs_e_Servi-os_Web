@@ -52,6 +52,11 @@
             </summary>
             <param name="nome">Nome ou parte do nome do aluno.</param>
         </member>
+        <member name="M:Sprint3.Controllers.AlunoController.GetMeuBoletim">
+            <summary>
+            Busca o boletim do aluno logado usando o CPF salvo no Token JWT.
+            </summary>
+        </member>
         <member name="M:Sprint3.Controllers.DisciplinaController.GetDisciplinas">
             <summary>
             Lista todos as disciplinas cadastradas.
@@ -140,6 +145,18 @@
             <inheritdoc />
         </member>
         <member name="M:Sprint3.Migrations.AjusteNomeTurma.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sprint3.Migrations.MudarLoginParaCpf">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.MudarLoginParaCpf.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.MudarLoginParaCpf.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sprint3.Migrations.MudarLoginParaCpf.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:Program">

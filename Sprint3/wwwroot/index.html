@@ -41,10 +41,13 @@
                 <div class="card p-4">
                     <img src="logo2.jpg" class="img-fluid mx-auto d-block mb-2" height="120" width="120" alt="logo">
                     <h3 class="text-center mb-4">Faculdade Hilberto Silva</h3>
+
+                    <div id="msgLogin"></div>
+
                     <form id="formLogin">
                         <div class="mb-3">
-                            <label class="form-label">Usuário</label>
-                            <input type="text" class="form-control" id="loginUsuario" required>
+                            <label class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="loginCpf" placeholder="000.000.000-00" required oninput="aplicarMascaraCpf(this)">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Senha</label>
@@ -56,7 +59,7 @@
                         <button type="submit" class="btn btn-primary w-100">Entrar</button>
                     </form>
                     <div class="mt-3 text-center">
-                        <a href="#" id="linkIrParaRegistro" class="text-decoration-none">Não tem uma conta? Registre-se</a>
+                        <a href="#" id="linkIrParaRegistro" class="text-decoration-none text-primary">Não tem uma conta? Registre-se</a>
                     </div>
                 </div>
             </div>
@@ -64,10 +67,13 @@
             <div class="col-md-5 d-none" id="cardRegistro">
                 <div class="card p-4">
                     <h3 class="text-center mb-4">Cadastre-se</h3>
+
+                    <div id="msgRegistro"></div>
+
                     <form id="formRegistro">
                         <div class="mb-3">
-                            <label class="form-label">Novo Usuário</label>
-                            <input type="text" class="form-control" id="regUsuario" required>
+                            <label class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="regCpf" placeholder="000.000.000-00" required oninput="aplicarMascaraCpf(this)">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Senha</label>
@@ -76,17 +82,10 @@
                                 <button class="btn btn-outline-secondary" type="button" onclick="toggleSenha('regSenha', this)">Mostrar</button>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tipo de Usuário</label>
-                            <select class="form-select" id="regTipo" required>
-                                <option value="aluno">Aluno</option>
-                                <option value="professor">Professor</option>
-                            </select>
-                        </div>
                         <button type="submit" class="btn btn-success w-100">Registrar</button>
                     </form>
                     <div class="mt-3 text-center">
-                        <a href="#" id="linkIrParaLogin" class="text-decoration-none">Já tem uma conta? Faça Login</a>
+                        <a href="#" id="linkIrParaLogin" class="text-decoration-none text-primary">Já tem uma conta? Faça Login</a>
                     </div>
                 </div>
             </div>

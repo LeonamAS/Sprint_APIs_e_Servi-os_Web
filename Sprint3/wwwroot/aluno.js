@@ -1,34 +1,19 @@
-﻿// 1. VERIFICAÇÃO DE SEGURANÇA
-const token = localStorage.getItem("meuToken");
-
+﻿const token = localStorage.getItem("meuToken");
 if (!token) {
     alert("Acesso negado. Faça login primeiro.");
     window.location.href = "index.html";
 }
 
-// 2. FUNÇÃO DE LOGOUT
 document.getElementById('btnSair').addEventListener('click', () => {
     localStorage.removeItem("meuToken");
     window.location.href = "index.html";
 });
 
-// 3. BUSCAR BOLETIM POR NOME
-document.getElementById('formBoletim').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    // Agora pegamos o valor do input de texto
-    const nomeAluno = document.getElementById('inputNomeAluno').value;
-    const cardResultado = document.getElementById('cardResultado');
+async function carregarMeuBoletim() {
     const divConteudo = document.getElementById('conteudoBoletim');
 
-    cardResultado.classList.remove('d-none');
-    divConteudo.innerHTML = '<p class="text-center text-muted">Gerando boletim completo...</p>';
-
     try {
-        // encodeURIComponent garante que espaços e acentos não quebrem a URL
-        const urlBusca = `/api/aluno/boletim/busca-nome?nome=${encodeURIComponent(nomeAluno)}`;
-
-        const response = await fetch(urlBusca, {
+        const response = await fetch('/api/aluno/meu-boletim', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -38,6 +23,10 @@ document.getElementById('formBoletim').addEventListener('submit', async function
 
         if (response.ok) {
             const boletim = await response.json();
+
+            const primeiroNome = boletim.nomeAluno.split(' ')[0];
+
+            document.getElementById('nomeUsuario').textContent = `Bem-vindo(a), ${primeiroNome}!`;
 
             let htmlFinal = `
                 <div class="mb-4">
@@ -63,14 +52,20 @@ document.getElementById('formBoletim').addEventListener('submit', async function
                 `;
 
                 boletim.disciplinas.forEach(d => {
-                    const corNota = d.nota >= 6 ? 'text-success fw-bold' : 'text-danger fw-bold';
+                    const temNota = d.nota !== null && d.nota !== undefined;
+                    const temFreq = d.frequencia !== null && d.frequencia !== undefined;
+
+                    const textoNota = temNota ? d.nota : '<span class="text-muted fst-italic">Sem dados no momento</span>';
+                    const textoFreq = temFreq ? `${d.frequencia}%` : '<span class="text-muted fst-italic">Sem dados no momento</span>';
+
+                    const corNota = temNota ? (d.nota >= 7 ? 'text-success fw-bold' : 'text-danger fw-bold') : '';
 
                     htmlFinal += `
                         <tr>
                             <td>${d.nomeDisciplina}</td>
                             <td>${d.nomeTurma}</td>
-                            <td class="${corNota}">${d.nota}</td>
-                            <td>${d.frequencia}%</td>
+                            <td class="${corNota}">${textoNota}</td>
+                            <td>${textoFreq}</td>
                         </tr>
                     `;
                 });
@@ -80,22 +75,24 @@ document.getElementById('formBoletim').addEventListener('submit', async function
                     </table>
                 </div>`;
             } else {
-                htmlFinal += `<div class="alert alert-info mt-3">Nenhuma nota registrada para este aluno ainda.</div>`;
+                htmlFinal += `<div class="alert alert-info mt-3">Nenhuma nota registrada para você ainda.</div>`;
             }
 
             divConteudo.innerHTML = htmlFinal;
 
         } else if (response.status === 404) {
-            divConteudo.innerHTML = '<div class="alert alert-warning">Aluno não encontrado. Verifique se o nome está correto.</div>';
+            divConteudo.innerHTML = '<div class="alert alert-warning mt-3">Seu CPF não foi encontrado na base de alunos. Contate a secretaria.</div>';
         } else if (response.status === 401 || response.status === 403) {
             alert("Sua sessão expirou ou você não tem permissão.");
             localStorage.removeItem("meuToken");
             window.location.href = "index.html";
         } else {
-            divConteudo.innerHTML = '<div class="alert alert-danger">Erro ao buscar os dados do boletim.</div>';
+            divConteudo.innerHTML = '<div class="alert alert-danger mt-3">Erro ao buscar os dados do seu boletim.</div>';
         }
     } catch (error) {
         console.error("Erro na API:", error);
-        divConteudo.innerHTML = '<div class="alert alert-danger">Erro de conexão com o servidor.</div>';
+        divConteudo.innerHTML = '<div class="alert alert-danger mt-3">Erro de conexão com o servidor.</div>';
     }
-});
+}
+
+carregarMeuBoletim();

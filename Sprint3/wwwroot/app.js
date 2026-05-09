@@ -1,14 +1,40 @@
 ﻿const API_URL = "/api/auth";
 
-// Lógica de Registro
+function exibirMensagem(elementoId, mensagem, tipoCor) {
+    const divMensagem = document.getElementById(elementoId);
+    divMensagem.innerHTML = `
+        <div class="alert alert-${tipoCor} alert-dismissible fade show" role="alert">
+            ${mensagem}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+}
+
+function limparMensagens() {
+    document.getElementById('msgLogin').innerHTML = '';
+    document.getElementById('msgRegistro').innerHTML = '';
+}
+
+function aplicarMascaraCpf(campo) {
+    let valor = campo.value.replace(/\D/g, "");
+    if (valor.length > 11) valor = valor.slice(0, 11);
+
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+    campo.value = valor;
+}
+
 document.getElementById('formRegistro').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const dados = {
-        login: document.getElementById('regUsuario').value,
-        senha: document.getElementById('regSenha').value,
-        tipoUsuario: document.getElementById('regTipo').value
+        cpf: document.getElementById('regCpf').value,
+        senha: document.getElementById('regSenha').value
     };
+
+    exibirMensagem('msgRegistro', 'Processando seu cadastro...', 'info');
 
     try {
         const response = await fetch(`${API_URL}/registrar`, {
@@ -20,24 +46,31 @@ document.getElementById('formRegistro').addEventListener('submit', async functio
         const result = await response.json();
 
         if (response.ok) {
-            alert("Sucesso: " + result.mensagem);
             document.getElementById('formRegistro').reset();
+
+            limparMensagens();
+
+            document.getElementById('cardRegistro').classList.add('d-none');
+            document.getElementById('cardLogin').classList.remove('d-none');
+
+            exibirMensagem('msgLogin', result.mensagem + ' Agora é só entrar.', 'success')
         } else {
-            alert("Erro: " + (result.mensagem || JSON.stringify(result)));
+            exibirMensagem('msgRegistro', result.mensagem || "Erro ao cadastrar.", 'danger');
         }
     } catch (error) {
-        alert("Erro ao conectar com a API.");
+        exibirMensagem('msgRegistro', 'Erro de conexão com o servidor.', 'danger');
     }
 });
 
-// Lógica de Login
 document.getElementById('formLogin').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const dados = {
-        usuario: document.getElementById('loginUsuario').value,
+        cpf: document.getElementById('loginCpf').value,
         senha: document.getElementById('loginSenha').value
     };
+
+    exibirMensagem('msgLogin', 'Autenticando...', 'info');
 
     try {
         const response = await fetch(`${API_URL}/login`, {
@@ -49,34 +82,37 @@ document.getElementById('formLogin').addEventListener('submit', async function (
         const result = await response.json();
 
         if (response.ok) {
+            exibirMensagem('msgLogin', 'Login aprovado! Redirecionando...', 'success');
             localStorage.setItem("meuToken", result.token);
 
-            if (result.tipoUsuario === "aluno") {
-                window.location.href = "dashboard_aluno.html";
-            } else if (result.tipoUsuario === "professor") {
-                // window.location.href = dashboard_professor.html
-                alert("Bem-vindo Professor! Tela em construção.");
-            } else {
-                //window.location.href = dashboard_admin.html
-                alert("Bem-vindo Admin! Tela em construção.");
-            }
+            setTimeout(() => {
+                if (result.tipoUsuario === "aluno") {
+                    window.location.href = "dashboard_aluno.html";
+                } else if (result.tipoUsuario === "professor") {
+                    exibirMensagem('msgLogin', 'Bem-vindo Professor! Tela em construção.', 'warning');
+                } else {
+                    exibirMensagem('msgLogin', 'Bem-vindo Admin! Tela em construção.', 'warning');
+                }
+            }, 1000);
+
         } else {
-                alert("Erro: " + result.mensagem);
+            exibirMensagem('msgLogin', result.mensagem || "CPF ou senha incorretos.", 'danger');
         }
     } catch (error) {
-        alert("Erro ao conectar com a API.");
+        exibirMensagem('msgLogin', 'Erro de conexão com o servidor.', 'danger');
     }
 });
 
-// Alternar entre Login e Registro
 document.getElementById('linkIrParaRegistro').addEventListener('click', function (e) {
     e.preventDefault();
+    limparMensagens();
     document.getElementById('cardLogin').classList.add('d-none');
     document.getElementById('cardRegistro').classList.remove('d-none');
 });
 
 document.getElementById('linkIrParaLogin').addEventListener('click', function (e) {
     e.preventDefault();
+    limparMensagens();
     document.getElementById('cardRegistro').classList.add('d-none');
     document.getElementById('cardLogin').classList.remove('d-none');
 });

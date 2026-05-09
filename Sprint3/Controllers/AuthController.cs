@@ -21,48 +21,63 @@ namespace Sprint3.Controllers
         }
 
         [HttpPost("registrar")]
-        public async Task<IActionResult> Registrar([FromBody] CreateUsuarioDTO registro)
+        public async Task<IActionResult> Registrar([FromBody] CreateUsuarioDTO dto)
         {
-            if (await _context.Usuarios.AnyAsync(u => u.Login == registro.Login))
-                return BadRequest(new { Mensagem = "Este usuário já existe." });
+            var usuarioJaExiste = await _context.Usuarios.AnyAsync(u => u.Cpf == dto.Cpf);
+            if (usuarioJaExiste)
+                return BadRequest(new { Mensagem = "Este CPF já possui uma conta de acesso ao sistema." });
+
+            string tipoDefinido = "";
+
+            var isAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf);
+            if (isAluno)
+            {
+                tipoDefinido = "aluno";
+            }
+            else
+            {
+                var isProfessor = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf);
+                if (isProfessor)
+                {
+                    tipoDefinido = "professor";
+                }
+                else
+                {
+                    return BadRequest(new { Mensagem = "CPF não encontrado na base da instituição. Procure a secretaria." });
+                }
+            }
 
             var novoUsuario = new Usuario
             {
-                Login = registro.Login,
-                Senha = registro.Senha,
-                TipoUsuario = registro.TipoUsuario.ToLower()
+                Cpf = dto.Cpf,
+                Senha = dto.Senha,
+                TipoUsuario = tipoDefinido
             };
 
             _context.Usuarios.Add(novoUsuario);
             await _context.SaveChangesAsync();
 
-            return Ok(new { Mensagem = "Usuário cadastrado com sucesso!" });
+            return Ok(new { Mensagem = "Conta criada com sucesso! Você já pode fazer login." });
         }
 
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Login([FromBody] LoginDTO login)
+        public async Task<IActionResult> Login([FromBody] LoginDTO dto)
         {
             var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.Login == login.Usuario);
+                .FirstOrDefaultAsync(u => u.Cpf == dto.Cpf && u.Senha == dto.Senha);
 
             if (usuario == null)
-                return Unauthorized(new { Mensagem = "Usuário ou senha inválidos." });
+                return Unauthorized(new { Mensagem = "CPF ou senha inválidos." });
 
-            bool senhaCorreta = login.Senha == usuario.Senha;
-
-            if (!senhaCorreta)
-                return Unauthorized(new { Mensagem = "Usuário ou senha inválidos." });
-
-            var tokenString = _tokenService.GerarToken(usuario);
+            var token = _tokenService.GerarToken(usuario);
 
             return Ok(new
             {
-                Usuario = usuario.Login,
-                TipoUsuario = usuario.TipoUsuario,
-                Token = tokenString,
-                ExpiraEm = DateTime.UtcNow.AddHours(2)
+                usuario = usuario.Cpf,
+                tipoUsuario = usuario.TipoUsuario,
+                token = token
             });
         }
     }

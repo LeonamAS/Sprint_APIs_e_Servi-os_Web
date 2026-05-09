@@ -22,7 +22,7 @@ namespace Sprint3.Services
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-                new Claim(ClaimTypes.Name, usuario.Login),
+                new Claim(ClaimTypes.Name, usuario.Cpf),
                 new Claim(ClaimTypes.Role, usuario.TipoUsuario)
             };
 
