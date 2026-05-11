@@ -19,8 +19,15 @@ public class MatriculaController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Lista todos as matriculas cadastradas.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores** e **Professsores**.
+    /// </remarks>
+    /// <response code="200">Uma lista de todas as matriculas.</response>
     [HttpGet]
-    [Authorize(Roles = "professor")]
+    [Authorize(Roles = "administrador,professor")]
     public async Task<IActionResult> GetMatriculas()
     {
         var matriculas = await _context.Matriculas
@@ -42,8 +49,14 @@ public class MatriculaController : ControllerBase
         return Ok(matriculas);
     }
 
+    /// <summary>
+    /// Obtém os detalhes de uma matricula específica pelo ID.
+    /// </summary>
+    /// <param name="id">ID numérico da matricula.</param>
+    /// <response code="200">Retorna a matricula encontrada.</response>
+    /// <response code="404">Se a matricula não for encontrada.</response>
     [HttpGet("{id}")]
-    [Authorize(Roles = "professor,aluno")]
+    [Authorize(Roles = "administrador,professor,aluno")]
     public async Task<IActionResult> GetMatriculaById(int id)
     {
         var matricula = await _context.Matriculas
@@ -69,8 +82,22 @@ public class MatriculaController : ControllerBase
         return Ok(matricula);
     }
 
+    /// <summary>
+    /// Cadastra uma nova matricula.
+    /// </summary>
+    /// <remarks>
+    /// Exemplo de requisição:
+    /// 
+    ///     POST /api/Matricula
+    ///     {
+    ///        "alunoId": 4,
+    ///        "turmaId": 5,
+    ///        "nota": 10,
+    ///        "frequencia": 90
+    ///     }
+    /// </remarks>
     [HttpPost]
-    [Authorize(Roles = "professor")]
+    [Authorize(Roles = "administrador,professor")]
     public async Task<IActionResult> PostMatricula([FromBody] CreateMatriculaDTO dto)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -101,8 +128,17 @@ public class MatriculaController : ControllerBase
         return await GetMatriculaById(novaMatricula.Id);
     }
 
+    /// <summary>
+    /// Atualiza dados parciais de uma matricula existente.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores** e **Professores**.
+    /// Apenas os campos enviados serão atualizados.
+    /// </remarks>
+    /// <param name="id">ID numérico da matricula a ser atualizada.</param>
+    /// <param name="dto">Objeto contendo os dados parciais para atualização.</param>
     [HttpPatch("{id}")]
-    [Authorize(Roles = "professor")]
+    [Authorize(Roles = "administradores,professor")]
     public async Task<IActionResult> PatchMatricula(int id, [FromBody] UpdateMatriculaDTO dto)
     {
         var matricula = await _context.Matriculas.FindAsync(id);
@@ -118,6 +154,9 @@ public class MatriculaController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Remove um aluno do sistema.
+    /// </summary>
     [HttpDelete("{id}")]
     [Authorize(Roles = "professor")]
     public async Task<IActionResult> DeleteMatricula(int id)

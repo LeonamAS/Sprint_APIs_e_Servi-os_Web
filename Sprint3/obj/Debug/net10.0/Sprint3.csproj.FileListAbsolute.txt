@@ -263,11 +263,7 @@ C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Microsoft.Identity
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.runtime.json
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.staticwebassets.runtime.json
-C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-zd5owo1v2l-zd5owo1v2l.gz
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\appsettings.json
-C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-kuhinelkag-kuhinelkag.gz
-C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-2c06bk9x4q-2c06bk9x4q.gz
-C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-8546uh3gs8-8546uh3gs8.gz
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.xml
 C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.xml
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.xml
@@ -280,3 +276,11 @@ E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-r
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-kr941xjhet-kr941xjhet.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\ltjd61tn5d-{0}-clnetzzq9n-clnetzzq9n.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\93bnhj3tms-{0}-g34u5c2a7r-g34u5c2a7r.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\93bnhj3tms-{0}-g34u5c2a7r-g34u5c2a7r.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-dwt617ysem-dwt617ysem.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-r7gpblfa1z-r7gpblfa1z.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\ltjd61tn5d-{0}-e6bh02i5ag-e6bh02i5ag.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-te0u9rzmmr-te0u9rzmmr.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\122zi2nvy1-{0}-b0748de7bt-b0748de7bt.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-kr941xjhet-kr941xjhet.gz
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\compressed\44qhr36i8s-{0}-6q1f9cy35x-6q1f9cy35x.gz

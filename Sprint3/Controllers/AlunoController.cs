@@ -50,6 +50,9 @@ public class AlunoController : ControllerBase
     /// <summary>
     /// Obtém os detalhes de um aluno específico pelo ID.
     /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores** e **Professsores**.
+    /// </remarks>
     /// <param name="id">ID numérico do aluno.</param>
     /// <response code="200">Retorna o aluno encontrado.</response>
     /// <response code="404">Se o aluno não for encontrado.</response>

@@ -20,6 +20,13 @@ public class ProfessorController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Lista todos os professores cadastrados.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
+    /// <response code="200">Uma lista de professores simplificada.</response>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<ProfessorResponseDTO>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -46,6 +53,15 @@ public class ProfessorController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Obtém os detalhes de um professor específico pelo ID.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
+    /// <param name="id">ID numérico do professor.</param>
+    /// <response code="200">Retorna o professor encontrado.</response>
+    /// <response code="404">Se o professor não for encontrado.</response>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(ProfessorResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -69,6 +85,21 @@ public class ProfessorController : ControllerBase
         return Ok(professor);
     }
 
+    /// <summary>
+    /// Cadastra um novo professor.
+    /// </summary>
+    /// <remarks>
+    /// Exemplo de requisição:
+    /// 
+    ///     POST /api/Professor
+    ///     {
+    ///        "nome": "Marcos Vinícius",
+    ///        "cpf": "666.777.888-99",
+    ///        "especialidade": "Sistemas Operacionais"
+    ///     }
+    /// </remarks>
+    /// <response code="201">Aluno criado com sucesso.</response>
+    /// <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -104,6 +135,18 @@ public class ProfessorController : ControllerBase
         return CreatedAtAction(nameof(GetProfessorById), new { id = novoProfessor.Id }, responseDto);
     }
 
+    /// <summary>
+    /// Atualiza dados parciais de um professor existente.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// Apenas os campos enviados serão atualizados.
+    /// </remarks>
+    /// <param name="id">ID numérico do professor a ser atualizado.</param>
+    /// <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+    /// <response code="204">Professor atualizado com sucesso.</response>
+    /// <response code="400">Dados inválidos (CPF duplicado).</response>
+    /// <response code="404">Aluno não encontrado pelo ID informado.</response>
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -124,7 +167,7 @@ public class ProfessorController : ControllerBase
         if (!string.IsNullOrWhiteSpace(dto.Cpf))
         {
             var cpfExisteProfessor = await _context.Professores.AnyAsync(p => p.Cpf == dto.Cpf && p.Id != id);
-            var cpfExisteAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf); // Não precisa ignorar o ID aqui, pois são tabelas diferentes
+            var cpfExisteAluno = await _context.Alunos.AnyAsync(a => a.Cpf == dto.Cpf);
 
             if (cpfExisteProfessor || cpfExisteAluno)
                 return BadRequest(new { Mensagem = "Já existe outro usuário (Professor ou Aluno) cadastrado com este CPF." });
@@ -137,6 +180,9 @@ public class ProfessorController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Remove um professor do sistema.
+    /// </summary>
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

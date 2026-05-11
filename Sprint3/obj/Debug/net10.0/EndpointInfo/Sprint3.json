@@ -106,6 +106,7 @@
           "Aluno"
         ],
         "summary": "Obtém os detalhes de um aluno específico pelo ID.",
+        "description": "Acesso permitido apenas para: **Administradores** e **Professsores**.",
         "parameters": [
           {
             "name": "id",
@@ -557,6 +558,7 @@
           "Disciplina"
         ],
         "summary": "Lista todos as disciplinas cadastradas.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "responses": {
           "200": {
             "description": "Uma lista simplificada das disciplinas.",
@@ -650,6 +652,7 @@
           "Disciplina"
         ],
         "summary": "Obtém os detalhes de uma disciplina específica pelo ID.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "parameters": [
           {
             "name": "id",
@@ -709,10 +712,13 @@
         "tags": [
           "Disciplina"
         ],
+        "summary": "Atualiza dados parciais de uma disciplina existente.",
+        "description": "Acesso permitido apenas para: **Administradores**.\r\nApenas os campos enviados serão atualizados.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico da disciplina a ser atualizada.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -721,6 +727,7 @@
           }
         ],
         "requestBody": {
+          "description": "Objeto contendo os dados parciais para atualização.",
           "content": {
             "application/json": {
               "schema": {
@@ -741,10 +748,10 @@
         },
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Disciplina atualizada com sucesso."
           },
           "404": {
-            "description": "Not Found",
+            "description": "Aluno não encontrado pelo ID informado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -769,6 +776,7 @@
         "tags": [
           "Disciplina"
         ],
+        "summary": "Remove uma disciplina do sistema.",
         "parameters": [
           {
             "name": "id",
@@ -812,9 +820,11 @@
         "tags": [
           "Matricula"
         ],
+        "summary": "Lista todos as matriculas cadastradas.",
+        "description": "Acesso permitido apenas para: **Administradores** e **Professsores**.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Uma lista de todas as matriculas."
           }
         }
       },
@@ -822,6 +832,8 @@
         "tags": [
           "Matricula"
         ],
+        "summary": "Cadastra uma nova matricula.",
+        "description": "Exemplo de requisição:\r\n\r\n    POST /api/Matricula\r\n    {\r\n       \"alunoId\": 4,\r\n       \"turmaId\": 5,\r\n       \"nota\": 10,\r\n       \"frequencia\": 90\r\n    }",
         "requestBody": {
           "content": {
             "application/json": {
@@ -853,10 +865,12 @@
         "tags": [
           "Matricula"
         ],
+        "summary": "Obtém os detalhes de uma matricula específica pelo ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico da matricula.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -866,7 +880,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Retorna a matricula encontrada."
+          },
+          "404": {
+            "description": "Se a matricula não for encontrada."
           }
         }
       },
@@ -874,10 +891,13 @@
         "tags": [
           "Matricula"
         ],
+        "summary": "Atualiza dados parciais de uma matricula existente.",
+        "description": "Acesso permitido apenas para: **Administradores** e **Professores**.\r\nApenas os campos enviados serão atualizados.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico da matricula a ser atualizada.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -886,6 +906,7 @@
           }
         ],
         "requestBody": {
+          "description": "Objeto contendo os dados parciais para atualização.",
           "content": {
             "application/json": {
               "schema": {
@@ -914,6 +935,7 @@
         "tags": [
           "Matricula"
         ],
+        "summary": "Remove um aluno do sistema.",
         "parameters": [
           {
             "name": "id",
@@ -937,9 +959,11 @@
         "tags": [
           "Professor"
         ],
+        "summary": "Lista todos os professores cadastrados.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Uma lista de professores simplificada.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -976,6 +1000,8 @@
         "tags": [
           "Professor"
         ],
+        "summary": "Cadastra um novo professor.",
+        "description": "Exemplo de requisição:\r\n\r\n    POST /api/Professor\r\n    {\r\n       \"nome\": \"Marcos Vinícius\",\r\n       \"cpf\": \"666.777.888-99\",\r\n       \"especialidade\": \"Sistemas Operacionais\"\r\n    }",
         "requestBody": {
           "content": {
             "application/json": {
@@ -997,10 +1023,10 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Aluno criado com sucesso."
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Dados inválidos ou CPF/Matrícula já existente.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1027,10 +1053,13 @@
         "tags": [
           "Professor"
         ],
+        "summary": "Obtém os detalhes de um professor específico pelo ID.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico do professor.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1040,7 +1069,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Retorna o professor encontrado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1060,7 +1089,7 @@
             }
           },
           "404": {
-            "description": "Not Found",
+            "description": "Se o professor não for encontrado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1085,10 +1114,13 @@
         "tags": [
           "Professor"
         ],
+        "summary": "Atualiza dados parciais de um professor existente.",
+        "description": "Acesso permitido apenas para: **Administradores**.\r\nApenas os campos enviados serão atualizados.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico do professor a ser atualizado.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1097,6 +1129,7 @@
           }
         ],
         "requestBody": {
+          "description": "Objeto contendo os dados parciais para atualização.",
           "content": {
             "application/json": {
               "schema": {
@@ -1117,10 +1150,10 @@
         },
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Professor atualizado com sucesso."
           },
           "404": {
-            "description": "Not Found",
+            "description": "Aluno não encontrado pelo ID informado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1140,7 +1173,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Dados inválidos (CPF duplicado).",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1165,6 +1198,7 @@
         "tags": [
           "Professor"
         ],
+        "summary": "Remove um professor do sistema.",
         "parameters": [
           {
             "name": "id",

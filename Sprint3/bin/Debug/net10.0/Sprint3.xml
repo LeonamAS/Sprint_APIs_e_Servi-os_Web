@@ -17,6 +17,9 @@
             <summary>
             Obtém os detalhes de um aluno específico pelo ID.
             </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores** e **Professsores**.
+            </remarks>
             <param name="id">ID numérico do aluno.</param>
             <response code="200">Retorna o aluno encontrado.</response>
             <response code="404">Se o aluno não for encontrado.</response>
@@ -75,6 +78,9 @@
             <summary>
             Lista todos as disciplinas cadastradas.
             </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
             <response code="200">Uma lista simplificada das disciplinas.</response>
         </member>
         <member name="M:Sprint3.Controllers.DisciplinaController.GetDisciplinaById(System.Int32)">
@@ -82,6 +88,9 @@
             Obtém os detalhes de uma disciplina específica pelo ID.
             </summary>
             <param name="id">ID numérico da disciplina.</param>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
             <response code="200">Retorna a disciplina encontrada.</response>
             <response code="404">Se a disciplina não for encontrada.</response>
         </member>
@@ -100,6 +109,129 @@
             </remarks>
             <response code="201">Aluno criado com sucesso.</response>
             <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.DisciplinaController.PatchDisciplina(System.Int32,Sprint3.DTOs.Requests.UpdateDisciplinaDTO)">
+            <summary>
+            Atualiza dados parciais de uma disciplina existente.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            Apenas os campos enviados serão atualizados.
+            </remarks>
+            <param name="id">ID numérico da disciplina a ser atualizada.</param>
+            <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+            <response code="204">Disciplina atualizada com sucesso.</response>
+            <response code="404">Aluno não encontrado pelo ID informado.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.DisciplinaController.DeleteDisciplina(System.Int32)">
+            <summary>
+            Remove uma disciplina do sistema.
+            </summary>
+        </member>
+        <member name="M:Sprint3.Controllers.MatriculaController.GetMatriculas">
+            <summary>
+            Lista todos as matriculas cadastradas.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores** e **Professsores**.
+            </remarks>
+            <response code="200">Uma lista de todas as matriculas.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.MatriculaController.GetMatriculaById(System.Int32)">
+            <summary>
+            Obtém os detalhes de uma matricula específica pelo ID.
+            </summary>
+            <param name="id">ID numérico da matricula.</param>
+            <response code="200">Retorna a matricula encontrada.</response>
+            <response code="404">Se a matricula não for encontrada.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.MatriculaController.PostMatricula(Sprint3.DTOs.Requests.CreateMatriculaDTO)">
+            <summary>
+            Cadastra uma nova matricula.
+            </summary>
+            <remarks>
+            Exemplo de requisição:
+            
+                POST /api/Matricula
+                {
+                   "alunoId": 4,
+                   "turmaId": 5,
+                   "nota": 10,
+                   "frequencia": 90
+                }
+            </remarks>
+        </member>
+        <member name="M:Sprint3.Controllers.MatriculaController.PatchMatricula(System.Int32,Sprint3.DTOs.Requests.UpdateMatriculaDTO)">
+            <summary>
+            Atualiza dados parciais de uma matricula existente.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores** e **Professores**.
+            Apenas os campos enviados serão atualizados.
+            </remarks>
+            <param name="id">ID numérico da matricula a ser atualizada.</param>
+            <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+        </member>
+        <member name="M:Sprint3.Controllers.MatriculaController.DeleteMatricula(System.Int32)">
+            <summary>
+            Remove um aluno do sistema.
+            </summary>
+        </member>
+        <member name="M:Sprint3.Controllers.ProfessorController.GetProfessores">
+            <summary>
+            Lista todos os professores cadastrados.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
+            <response code="200">Uma lista de professores simplificada.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.ProfessorController.GetProfessorById(System.Int32)">
+            <summary>
+            Obtém os detalhes de um professor específico pelo ID.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
+            <param name="id">ID numérico do professor.</param>
+            <response code="200">Retorna o professor encontrado.</response>
+            <response code="404">Se o professor não for encontrado.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.ProfessorController.PostProfessor(Sprint3.DTOs.Requests.CreateProfessorDTO)">
+            <summary>
+            Cadastra um novo professor.
+            </summary>
+            <remarks>
+            Exemplo de requisição:
+            
+                POST /api/Professor
+                {
+                   "nome": "Marcos Vinícius",
+                   "cpf": "666.777.888-99",
+                   "especialidade": "Sistemas Operacionais"
+                }
+            </remarks>
+            <response code="201">Aluno criado com sucesso.</response>
+            <response code="400">Dados inválidos ou CPF/Matrícula já existente.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.ProfessorController.PatchProfessor(System.Int32,Sprint3.DTOs.Requests.UpdateProfessorDTO)">
+            <summary>
+            Atualiza dados parciais de um professor existente.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            Apenas os campos enviados serão atualizados.
+            </remarks>
+            <param name="id">ID numérico do professor a ser atualizado.</param>
+            <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+            <response code="204">Professor atualizado com sucesso.</response>
+            <response code="400">Dados inválidos (CPF duplicado).</response>
+            <response code="404">Aluno não encontrado pelo ID informado.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.ProfessorController.DeleteProfessor(System.Int32)">
+            <summary>
+            Remove um professor do sistema.
+            </summary>
         </member>
         <member name="T:Sprint3.Migrations.CriandoTabelasIniciais">
             <inheritdoc />

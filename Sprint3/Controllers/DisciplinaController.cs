@@ -23,6 +23,9 @@ public class DisciplinaController : ControllerBase
     /// <summary>
     /// Lista todos as disciplinas cadastradas.
     /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
     /// <response code="200">Uma lista simplificada das disciplinas.</response>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<DisciplinaResponseDTO>), StatusCodes.Status200OK)]
@@ -53,6 +56,9 @@ public class DisciplinaController : ControllerBase
     /// Obtém os detalhes de uma disciplina específica pelo ID.
     /// </summary>
     /// <param name="id">ID numérico da disciplina.</param>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
     /// <response code="200">Retorna a disciplina encontrada.</response>
     /// <response code="404">Se a disciplina não for encontrada.</response>
     [HttpGet("{id}")]
@@ -118,6 +124,17 @@ public class DisciplinaController : ControllerBase
         return CreatedAtAction(nameof(GetDisciplinaById), new { id = novaDisciplina.Id }, responseDto);
     }
 
+    /// <summary>
+    /// Atualiza dados parciais de uma disciplina existente.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// Apenas os campos enviados serão atualizados.
+    /// </remarks>
+    /// <param name="id">ID numérico da disciplina a ser atualizada.</param>
+    /// <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+    /// <response code="204">Disciplina atualizada com sucesso.</response>
+    /// <response code="404">Aluno não encontrado pelo ID informado.</response>
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -143,6 +160,9 @@ public class DisciplinaController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Remove uma disciplina do sistema.
+    /// </summary>
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

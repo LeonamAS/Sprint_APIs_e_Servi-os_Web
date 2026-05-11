@@ -8,7 +8,6 @@ public class TurmaRequestDTO
     [StringLength(20, ErrorMessage = "O nome da turma não pode exceder 20 caracteres")]
     public string Nome { get; set; }
 
-    // Chaves Estrangeiras
     [Required(ErrorMessage = "O ID do professor é obrigatório")]
     public int ProfessorId { get; set; }
 

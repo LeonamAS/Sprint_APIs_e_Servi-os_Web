@@ -1,3 +1,4 @@
+wwwroot\admin.js
 wwwroot\aluno.js
 wwwroot\app.js
 wwwroot\dashboard_admin.html
@@ -8,12 +9,11 @@ wwwroot\index.html
 wwwroot\logo1.jpg
 wwwroot\logo2.jpg
 wwwroot\professor.js
-wwwroot\admin.js
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\aluno.js
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\app.js
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\dashboard_admin.html
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\dashboard_aluno.html
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\dashboard_professor.html
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\index.html
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\professor.js
-E:\Leonam\BACK_END\Sprint3\Sprint3\wwwroot\admin.js
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\aluno.js
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\index.html
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\dashboard_professor.html
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\dashboard_aluno.html
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\professor.js
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\dashboard_admin.html
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\app.js
+C:\Users\020.747731\BackEnd\Sprint3\Sprint3\wwwroot\admin.js
