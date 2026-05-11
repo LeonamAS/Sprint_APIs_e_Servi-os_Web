@@ -23,6 +23,9 @@ public class AlunoController : ControllerBase
     /// <summary>
     /// Lista todos os alunos cadastrados.
     /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores** e **Professsores**.
+    /// </remarks>
     /// <response code="200">Uma lista de alunos simplificada.</response>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<AlunoResponseDTO>), StatusCodes.Status200OK)]
@@ -135,12 +138,25 @@ public class AlunoController : ControllerBase
     }
 
     /// <summary>
-    /// Atualiza dados parciais de um aluno.
+    /// Atualiza dados parciais de um aluno existente.
     /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// Apenas os campos enviados serão atualizados.
+    /// </remarks>
+    /// <param name="id">ID numérico do aluno a ser atualizado.</param>
+    /// <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+    /// <response code="204">Aluno atualizado com sucesso.</response>
+    /// <response code="400">Dados inválidos (ex: data no futuro, CPF/Matrícula duplicados).</response>
+    /// <response code="401">Usuário não autenticado.</response>
+    /// <response code="403">Usuário não tem permissão para esta ação.</response>
+    /// <response code="404">Aluno não encontrado pelo ID informado.</response>
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [Authorize(Roles = "administrador")]
     public async Task<IActionResult> PatchAluno(int id, [FromBody] UpdateAlunoDTO dto)
     {

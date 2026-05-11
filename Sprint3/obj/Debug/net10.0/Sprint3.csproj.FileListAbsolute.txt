@@ -273,6 +273,10 @@ C:\Users\020.747731\BackEnd\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.xml
 E:\Leonam\BACK_END\Sprint3\Sprint3\bin\Debug\net10.0\Sprint3.xml
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\Sprint3.xml
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\mifplv8a60-{0}-te0u9rzmmr-te0u9rzmmr.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-cmw7jfyc5a-cmw7jfyc5a.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-au0rqh6hsk-au0rqh6hsk.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\z512s3lyrp-{0}-dwt617ysem-dwt617ysem.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\122zi2nvy1-{0}-b0748de7bt-b0748de7bt.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\44qhr36i8s-{0}-6q1f9cy35x-6q1f9cy35x.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\e7f0biq7fg-{0}-r7gpblfa1z-r7gpblfa1z.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\2smqkv32eo-{0}-kr941xjhet-kr941xjhet.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\ltjd61tn5d-{0}-clnetzzq9n-clnetzzq9n.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\93bnhj3tms-{0}-g34u5c2a7r-g34u5c2a7r.gz

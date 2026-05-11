@@ -18,7 +18,7 @@
         .card {
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgb(255, 255, 255);
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <div class="col-md-5" id="cardLogin">
+            <div class="col-md-6" id="cardLogin">
                 <div class="card p-4">
                     <img src="logo2.jpg" class="img-fluid mx-auto d-block mb-2" height="120" width="120" alt="logo">
                     <h3 class="text-center mb-4">Faculdade Hilberto Silva</h3>
@@ -46,8 +46,8 @@
 
                     <form id="formLogin">
                         <div class="mb-3">
-                            <label class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="loginCpf" placeholder="000.000.000-00" required oninput="aplicarMascaraCpf(this)">
+                            <label class="form-label">CPF (Admin digite seu Usuário)</label>
+                            <input type="text" class="form-control" id="loginCpf" placeholder="Digite seu CPF" required oninput="mascaraLogin(this)">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Senha</label>

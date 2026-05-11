@@ -1,8 +1,12 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Sprint3",
-    "version": "1.0"
+    "title": "API Faculdade Hilberto Silva",
+    "description": "Documentação da API para o sistema escolar (Sprint 3).",
+    "contact": {
+      "name": "Leonam Sales"
+    },
+    "version": "v1"
   },
   "paths": {
     "/api/Aluno": {
@@ -11,6 +15,7 @@
           "Aluno"
         ],
         "summary": "Lista todos os alunos cadastrados.",
+        "description": "Acesso permitido apenas para: **Administradores** e **Professsores**.",
         "responses": {
           "200": {
             "description": "Uma lista de alunos simplificada.",
@@ -160,11 +165,13 @@
         "tags": [
           "Aluno"
         ],
-        "summary": "Atualiza dados parciais de um aluno.",
+        "summary": "Atualiza dados parciais de um aluno existente.",
+        "description": "Acesso permitido apenas para: **Administradores**.\r\nApenas os campos enviados serão atualizados.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico do aluno a ser atualizado.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -173,6 +180,7 @@
           }
         ],
         "requestBody": {
+          "description": "Objeto contendo os dados parciais para atualização.",
           "content": {
             "application/json": {
               "schema": {
@@ -193,10 +201,10 @@
         },
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Aluno atualizado com sucesso."
           },
-          "404": {
-            "description": "Not Found",
+          "400": {
+            "description": "Dados inválidos (ex: data no futuro, CPF/Matrícula duplicados).",
             "content": {
               "text/plain": {
                 "schema": {
@@ -215,8 +223,48 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request",
+          "401": {
+            "description": "Usuário não autenticado.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Usuário não tem permissão para esta ação.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aluno não encontrado pelo ID informado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -468,6 +516,37 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Auth/registrar-admin": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAdminDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAdminDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAdminDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -1303,6 +1382,25 @@
         },
         "additionalProperties": false
       },
+      "CreateAdminDTO": {
+        "required": [
+          "cpf",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "cpf": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "senha": {
+            "minLength": 8,
+            "pattern": "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[\\W_]).+$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateAlunoDTO": {
         "required": [
           "cpf",
@@ -1677,7 +1775,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "{seu token}",
+        "description": "Insira o token JWT abaixo.\n\nATENÇÃO: Não precisa digitar 'Bearer ' antes do token, apenas cole o token.",
         "scheme": "Bearer",
         "bearerFormat": "JWT"
       }

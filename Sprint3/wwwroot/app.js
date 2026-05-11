@@ -25,6 +25,22 @@ function aplicarMascaraCpf(campo) {
 
     campo.value = valor;
 }
+function mascaraLogin(campo) {
+    let valor = campo.value;
+
+    if (/[a-zA-Z]/.test(valor)) {
+        return;
+    }
+
+    valor = valor.replace(/\D/g, "");
+    if (valor.length > 11) valor = valor.slice(0, 11);
+
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+    campo.value = valor;
+}
 
 document.getElementById('formRegistro').addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -55,7 +71,7 @@ document.getElementById('formRegistro').addEventListener('submit', async functio
 
             exibirMensagem('msgLogin', result.mensagem + ' Agora é só entrar.', 'success')
         } else {
-            exibirMensagem('msgRegistro', result.mensagem || "Erro ao cadastrar.", 'danger');
+            exibirMensagem('msgRegistro', result.mensagem || "A senha deve conter pelo menos uma letra, um número e um caractere especial.", 'danger');
         }
     } catch (error) {
         exibirMensagem('msgRegistro', 'Erro de conexão com o servidor.', 'danger');
@@ -89,9 +105,9 @@ document.getElementById('formLogin').addEventListener('submit', async function (
                 if (result.tipoUsuario === "aluno") {
                     window.location.href = "dashboard_aluno.html";
                 } else if (result.tipoUsuario === "professor") {
-                    exibirMensagem('msgLogin', 'Bem-vindo Professor! Tela em construção.', 'warning');
+                    window.location.href = "dashboard_professor.html";
                 } else {
-                    exibirMensagem('msgLogin', 'Bem-vindo Admin! Tela em construção.', 'warning');
+                    window.location.href = "dashboard_admin.html";
                 }
             }, 1000);
 

@@ -20,6 +20,17 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "API Faculdade Hilberto Silva",
+        Version = "v1",
+        Description = "Documentação da API para o sistema escolar (Sprint 3).",
+        Contact = new OpenApiContact
+        {
+            Name = "Leonam Sales"
+        }
+    });
+
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
@@ -31,7 +42,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "{seu token}"
+        Description = "Insira o token JWT abaixo.\n\nATENÇÃO: Não precisa digitar 'Bearer ' antes do token, apenas cole o token."
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -45,7 +56,7 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[]{}
+            Array.Empty<string>()
         }
     });
 });

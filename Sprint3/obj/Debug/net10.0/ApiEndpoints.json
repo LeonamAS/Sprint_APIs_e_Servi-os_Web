@@ -117,7 +117,7 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 404
+        "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -126,7 +126,25 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 400
+        "StatusCode": 401
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 403
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ]
   },
@@ -267,6 +285,22 @@
       {
         "Name": "dto",
         "Type": "Sprint3.DTOs.Requests.CreateUsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sprint3.Controllers.AuthController",
+    "Method": "RegistrarAdmin",
+    "RelativePath": "api/Auth/registrar-admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sprint3.DTOs.Requests.CreateAdminDTO",
         "IsRequired": true
       }
     ],
