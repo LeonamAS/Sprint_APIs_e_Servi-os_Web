@@ -21,7 +21,12 @@ public class AuthController : ControllerBase
         _tokenService = tokenService;
     }
 
+    /// <summary>
+    /// Registra um novo usuário no sistema.
+    /// </summary>
+    /// <response code="404">CPF não encontrado no sistema / usuário já cadastrado</response>
     [HttpPost("registrar")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Registrar([FromBody] CreateUsuarioDTO dto)
     {
         var usuarioJaExiste = await _context.Usuarios.AnyAsync(u => u.Cpf == dto.Cpf);
@@ -61,6 +66,11 @@ public class AuthController : ControllerBase
         return Ok(new { Mensagem = "Conta criada com sucesso! Você já pode fazer login." });
     }
 
+    /// <summary>
+    /// Realiza o login do usuário no sitema.
+    /// </summary>
+    /// <response code="200">Usuário autenticado.</response>
+    /// <response code="401">Usuário não cadastrado.</response>
     [HttpPost("login")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -82,6 +92,13 @@ public class AuthController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Realiza o cadastro de um administrador.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
+    /// <response code="200">Administrador cadastrado com sucesso.</response>
     [HttpPost("registrar-admin")]
     [Authorize(Roles = "administrador")]
     public async Task<IActionResult> RegistrarAdmin([FromBody] CreateAdminDTO dto)

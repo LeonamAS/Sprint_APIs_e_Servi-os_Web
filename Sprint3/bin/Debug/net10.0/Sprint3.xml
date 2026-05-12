@@ -74,6 +74,28 @@
             Busca o boletim do aluno logado usando o CPF salvo no Token JWT.
             </summary>
         </member>
+        <member name="M:Sprint3.Controllers.AuthController.Registrar(Sprint3.DTOs.Requests.CreateUsuarioDTO)">
+            <summary>
+            Registra um novo usuário no sistema.
+            </summary>
+            <response code="404">CPF não encontrado no sistema / usuário já cadastrado</response>
+        </member>
+        <member name="M:Sprint3.Controllers.AuthController.Login(Sprint3.DTOs.Requests.LoginDTO)">
+            <summary>
+            Realiza o login do usuário no sitema.
+            </summary>
+            <response code="200">Usuário autenticado.</response>
+            <response code="401">Usuário não cadastrado.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.AuthController.RegistrarAdmin(Sprint3.DTOs.Requests.CreateAdminDTO)">
+            <summary>
+            Realiza o cadastro de um administrador.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
+            <response code="200">Administrador cadastrado com sucesso.</response>
+        </member>
         <member name="M:Sprint3.Controllers.DisciplinaController.GetDisciplinas">
             <summary>
             Lista todos as disciplinas cadastradas.
@@ -231,6 +253,62 @@
         <member name="M:Sprint3.Controllers.ProfessorController.DeleteProfessor(System.Int32)">
             <summary>
             Remove um professor do sistema.
+            </summary>
+        </member>
+        <member name="M:Sprint3.Controllers.TurmaController.GetTurmas">
+            <summary>
+            Lista todos as turmas cadastradas.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
+            <response code="200">Uma lista de turmas simplificada.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.TurmaController.GetTurmaById(System.Int32)">
+            <summary>
+            Obtém os detalhes de uma turma específico pelo ID.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            </remarks>
+            <param name="id">ID numérico da turma.</param>
+            <response code="200">Retorna a turma encontrada.</response>
+            <response code="404">Se a turma não for encontrada.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.TurmaController.PostTurma(Sprint3.DTOs.Requests.CreateTurmaDTO)">
+            <summary>
+            Cadastra uma nova turma.
+            </summary>
+            <remarks>
+            Exemplo de requisição:
+            
+                POST /api/Turma
+                {
+                   "nome": "Turma F - Sistemas Op. (Noite)",
+                   "professorId": 6,
+                   "disciplinaId": 6
+                }
+            </remarks>
+        </member>
+        <member name="M:Sprint3.Controllers.TurmaController.PatchTurma(System.Int32,Sprint3.DTOs.Requests.UpdateTurmaDTO)">
+            <summary>
+            Atualiza dados parciais de uma turma existente.
+            </summary>
+            <remarks>
+            Acesso permitido apenas para: **Administradores**.
+            Apenas os campos enviados serão atualizados.
+            </remarks>
+            <param name="id">ID numérico da turma a ser atualizada.</param>
+            <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+            <response code="204">Turma atualizada com sucesso.</response>
+            <response code="400">Dados inválidos.</response>
+            <response code="401">Usuário não autenticado.</response>
+            <response code="403">Usuário não tem permissão para esta ação.</response>
+            <response code="404">Turma não encontrada pelo ID informado.</response>
+        </member>
+        <member name="M:Sprint3.Controllers.TurmaController.DeleteTurma(System.Int32)">
+            <summary>
+            Remove uma turma do sistema.
             </summary>
         </member>
         <member name="T:Sprint3.Migrations.CriandoTabelasIniciais">

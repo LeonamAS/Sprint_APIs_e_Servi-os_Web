@@ -444,6 +444,7 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Registra um novo usuário no sistema.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -464,8 +465,28 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CPF não encontrado no sistema / usuário já cadastrado"
           }
         }
       }
@@ -475,6 +496,7 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Realiza o login do usuário no sitema.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -496,10 +518,10 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Usuário autenticado."
           },
           "401": {
-            "description": "Unauthorized",
+            "description": "Usuário não cadastrado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -526,6 +548,8 @@
         "tags": [
           "Auth"
         ],
+        "summary": "Realiza o cadastro de um administrador.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -547,7 +571,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Administrador cadastrado com sucesso."
           }
         }
       }
@@ -1242,9 +1266,11 @@
         "tags": [
           "Turma"
         ],
+        "summary": "Lista todos as turmas cadastradas.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Uma lista de turmas simplificada."
           }
         }
       },
@@ -1252,6 +1278,8 @@
         "tags": [
           "Turma"
         ],
+        "summary": "Cadastra uma nova turma.",
+        "description": "Exemplo de requisição:\r\n\r\n    POST /api/Turma\r\n    {\r\n       \"nome\": \"Turma F - Sistemas Op. (Noite)\",\r\n       \"professorId\": 6,\r\n       \"disciplinaId\": 6\r\n    }",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1283,10 +1311,13 @@
         "tags": [
           "Turma"
         ],
+        "summary": "Obtém os detalhes de uma turma específico pelo ID.",
+        "description": "Acesso permitido apenas para: **Administradores**.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico da turma.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1296,7 +1327,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Retorna a turma encontrada."
+          },
+          "404": {
+            "description": "Se a turma não for encontrada."
           }
         }
       },
@@ -1304,10 +1338,13 @@
         "tags": [
           "Turma"
         ],
+        "summary": "Atualiza dados parciais de uma turma existente.",
+        "description": "Acesso permitido apenas para: **Administradores**.\r\nApenas os campos enviados serão atualizados.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID numérico da turma a ser atualizada.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1316,6 +1353,7 @@
           }
         ],
         "requestBody": {
+          "description": "Objeto contendo os dados parciais para atualização.",
           "content": {
             "application/json": {
               "schema": {
@@ -1335,8 +1373,88 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "Turma atualizada com sucesso."
+          },
+          "400": {
+            "description": "Dados inválidos.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Usuário não autenticado.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Usuário não tem permissão para esta ação.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Turma não encontrada pelo ID informado.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       },
@@ -1344,6 +1462,7 @@
         "tags": [
           "Turma"
         ],
+        "summary": "Remove uma turma do sistema.",
         "parameters": [
           {
             "name": "id",

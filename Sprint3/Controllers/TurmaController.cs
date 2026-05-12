@@ -20,6 +20,13 @@ public class TurmaController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Lista todos as turmas cadastradas.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
+    /// <response code="200">Uma lista de turmas simplificada.</response>
     [HttpGet]
     public async Task<IActionResult> GetTurmas()
     {
@@ -41,6 +48,15 @@ public class TurmaController : ControllerBase
         return Ok(turmas);
     }
 
+    /// <summary>
+    /// Obtém os detalhes de uma turma específico pelo ID.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// </remarks>
+    /// <param name="id">ID numérico da turma.</param>
+    /// <response code="200">Retorna a turma encontrada.</response>
+    /// <response code="404">Se a turma não for encontrada.</response>
     [HttpGet("{id}")]
     public async Task<IActionResult> GetTurmaById(int id)
     {
@@ -66,6 +82,19 @@ public class TurmaController : ControllerBase
         return Ok(turma);
     }
 
+    /// <summary>
+    /// Cadastra uma nova turma.
+    /// </summary>
+    /// <remarks>
+    /// Exemplo de requisição:
+    /// 
+    ///     POST /api/Turma
+    ///     {
+    ///        "nome": "Turma F - Sistemas Op. (Noite)",
+    ///        "professorId": 6,
+    ///        "disciplinaId": 6
+    ///     }
+    /// </remarks>
     [HttpPost]
     public async Task<IActionResult> PostTurma([FromBody] CreateTurmaDTO dto)
     {
@@ -90,7 +119,26 @@ public class TurmaController : ControllerBase
         return await GetTurmaById(novaTurma.Id);
     }
 
+    /// <summary>
+    /// Atualiza dados parciais de uma turma existente.
+    /// </summary>
+    /// <remarks>
+    /// Acesso permitido apenas para: **Administradores**.
+    /// Apenas os campos enviados serão atualizados.
+    /// </remarks>
+    /// <param name="id">ID numérico da turma a ser atualizada.</param>
+    /// <param name="dto">Objeto contendo os dados parciais para atualização.</param>
+    /// <response code="204">Turma atualizada com sucesso.</response>
+    /// <response code="400">Dados inválidos.</response>
+    /// <response code="401">Usuário não autenticado.</response>
+    /// <response code="403">Usuário não tem permissão para esta ação.</response>
+    /// <response code="404">Turma não encontrada pelo ID informado.</response>
     [HttpPatch("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> PatchTurma(int id, [FromBody] UpdateTurmaDTO dto)
     {
         var turma = await _context.Turmas.FindAsync(id);
@@ -117,6 +165,9 @@ public class TurmaController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Remove uma turma do sistema.
+    /// </summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTurma(int id)
     {

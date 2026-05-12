@@ -8,7 +8,7 @@ if (!token) {
 // 2. FUNÇÃO DE LOGOUT
 document.getElementById('btnSair').addEventListener('click', () => {
     localStorage.removeItem("meuToken");
-    window.location.href = "index.html";
+    window.location.href = "../../index.html";
 });
 
 // 3. CARREGAR DADOS DO PROFESSOR (Esqueleto preparado)
