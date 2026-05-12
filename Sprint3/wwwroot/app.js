@@ -69,7 +69,7 @@ document.getElementById('formRegistro').addEventListener('submit', async functio
             document.getElementById('cardRegistro').classList.add('d-none');
             document.getElementById('cardLogin').classList.remove('d-none');
 
-            exibirMensagem('msgLogin', result.mensagem + ' Agora é só entrar.', 'success')
+            exibirMensagem('msgLogin', result.mensagem, 'success')
         } else {
             exibirMensagem('msgRegistro', result.mensagem || "A senha deve conter pelo menos uma letra, um número e um caractere especial.", 'danger');
         }
@@ -103,11 +103,11 @@ document.getElementById('formLogin').addEventListener('submit', async function (
 
             setTimeout(() => {
                 if (result.tipoUsuario === "aluno") {
-                    window.location.href = "dashboard_aluno.html";
+                    window.location.href = "/Dashboards/dashboard_aluno.html";
                 } else if (result.tipoUsuario === "professor") {
-                    window.location.href = "dashboard_professor.html";
+                    window.location.href = "/Dashboards/dashboard_professor.html";
                 } else {
-                    window.location.href = "dashboard_admin.html";
+                    window.location.href = "/Dashboards/Admin/dashboard_admin.html";
                 }
             }, 1000);
 

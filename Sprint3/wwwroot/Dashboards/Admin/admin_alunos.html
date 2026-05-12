@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Alunos - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        .navbar-custom {
+            background-color: #512da8 !important; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-header {
+            background-color: rgba(255, 255, 255);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .table-custom thead th {
+            color: #512da8; 
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #512da8;
+        }
+
+        .btn-action-custom {
+            border-width: 2px;
+            font-size: 0.9rem;
+        }
+
+        .btn-action-custom i {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard_admin.html"><i class="bi bi-arrow-left me-2"></i> Voltar ao Painel</a>
+            <div class="d-flex">
+                <span class="navbar-text me-3">Módulo: Alunos</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center content-header mb-4">
+            <h2 class="mb-0">Lista de Alunos</h2>
+            <button class="btn btn-success btn-lg shadow-sm" onclick="abrirModalCadastro()">
+                <i class="bi bi-person-plus-fill me-2 fs-5"></i> Novo Aluno
+            </button>
+        </div>
+
+        <div class="card shadow-lg mb-4">
+            <div class="card-body p-0 table-responsive">
+                <table class="table table-striped table-bordered table-hover table-custom mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">Matrícula</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Data Nasc.</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaAlunos">
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-3">Carregando alunos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAluno" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalAlunoTitulo">Cadastrar Aluno</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="msgModalAluno"></div>
+                    <form id="formAluno">
+                        <input type="hidden" id="alunoId">
+
+                        <div class="mb-3">
+                            <label class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="alunoNome" maxlength="100" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="alunoCpf" placeholder="000.000.000-00" oninput="mascaraCpf(this)" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="alunoDataNasc" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Matrícula (6 números)</label>
+                            <input type="text" class="form-control" id="alunoMatricula" maxlength="6" oninput="mascaraNumeros(this)" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100" id="btnSalvarAluno">Salvar Aluno</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBoletim" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                    <h5 class="modal-title"><i class="bi bi-journal-text me-2"></i> Boletim Escolar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="boletimNomeAluno" class="text-primary mb-1">Carregando...</h4>
+                    <p class="text-muted mb-4">Matrícula: <span id="boletimMatriculaAluno">---</span></p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Turma</th>
+                                    <th>Disciplina</th>
+                                    <th class="text-center">Nota</th>
+                                    <th class="text-center">Frequência (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaBoletimCorpo">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConfirmarExclusao" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle-fill me-2"></i> Aviso de Segurança</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="fw-bold text-danger">Atenção: A exclusão do cadastro do aluno deve ser feita apenas após:</p>
+                    <ul class="mb-3">
+                        <li>1. A solicitação do mesmo, ou</li>
+                        <li>2. Após o período de 5 anos (conforme regulamentação).</li>
+                    </ul>
+                    <hr>
+                    <p>Tem certeza que deseja excluir o aluno(a) <span id="nomeAlunoExcluir" class="fw-bold text-dark"></span>?</p>
+                    <p class="text-muted small mb-0"><i><i class="bi bi-info-circle me-1"></i> Esta ação não pode ser desfeita.</i></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmarExclusaoFinal">Confirmar Exclusão</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="admin_alunos.js"></script>
+</body>
+</html>
