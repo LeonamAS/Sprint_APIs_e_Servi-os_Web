@@ -1,0 +1,66 @@
+-- 1. Inserção de Dados: DISCIPLINAS
+INSERT INTO disciplinas (nome, cargaHoraria) VALUES 
+('Algoritmos e Estruturas de Dados', 80),
+('Cálculo Diferencial e Integral I', 80),
+('Banco de Dados Relacionais', 60),
+('Programação Orientada a Objetos', 80),
+('Engenharia de Requisitos', 40),
+('Sistemas Operacionais', 60),
+('Redes de Computadores', 60),
+('Inteligência Artificial', 80),
+('Desenvolvimento Web Fullstack', 100),
+('Ética e Legislação Aplicada à TI', 40);
+
+-- 2. Inserção de Dados: PROFESSORES
+INSERT INTO professores (nome, cpf, especialidade) VALUES 
+('Arnaldo Souza', '111.222.333-44', 'Algoritmos e Estruturas de Dados'),
+('Carla Mendes', '222.333.444-55', 'Cálculo Diferencial e Integral I'),
+('Roberto Jefferson', '333.444.555-66', 'Banco de Dados Relacionais'),
+('Eliane Rocha', '444.555.666-77', 'Programação Orientada a Objetos'),
+('Fernando Henrique', '555.666.777-88', 'Engenharia de Requisitos'),
+('Marcos Vinícius', '666.777.888-99', 'Sistemas Operacionais'),
+('Patrícia Antunes', '777.888.999-00', 'Redes de Computadores'),
+('Gustavo Borges', '888.999.000-11', 'Inteligência Artificial'),
+('Letícia Spiller', '999.000.111-22', 'Desenvolvimento Web Fullstack'),
+('Sérgio Morocha', '000.111.222-33', 'Ética e Legislação Aplicada à TI');
+
+-- 3. Inserção de Dados: ALUNOS
+INSERT INTO alunos (nome, cpf, dataNascimento, matricula) VALUES 
+('Lucas Oliveira Silva', '123.456.789-00', '2005-03-12', '202600'),
+('Mariana Souza Costa', '234.567.890-11', '2004-07-22', '202601'),
+('Rafael Pereira Santos', '345.678.901-22', '2006-01-15', '202602'),
+('Beatriz Rocha Lima', '456.789.012-33', '2003-11-30', '202603'),
+('Gabriel Almeida Melo', '567.890.123-44', '2005-05-05', '202604'),
+('Fernanda Ribeiro Gomes', '678.901.234-55', '2004-09-18', '202605'),
+('Thiago Martins Cardoso', '789.012.345-66', '2006-04-02', '202606'),
+('Juliana Barbosa Freire', '890.123.456-77', '2005-12-12', '202607'),
+('Felipe Cavalcante Neves', '901.234.567-88', '2003-02-28', '202608'),
+('Camila Vieira Pires', '012.345.678-99', '2004-06-10', '202609');
+
+-- 4. Inserção de Dados: TURMAS
+INSERT INTO turmas (nome, professorId, disciplinaId) VALUES 
+('Algoritmos (Noite)', 1, 1),
+('Cálculo I (Manhã)', 2, 2),
+('Banco de Dados (Tarde)', 3, 3),
+('POO (Noite)', 4, 4),
+('Eng. Requisitos (Manhã)', 5, 5),
+('Sistemas Op. (Noite)', 6, 6),
+('Redes (Tarde)', 7, 7),
+('IA (Noite)', 8, 8),
+('Fullstack (Sábado)', 9, 9),
+('Ética (EAD)', 10, 10);
+
+-- 5. Inserção de Dados: MATRICULAS (Relacionamento Aluno-Turma)
+INSERT INTO matriculas (alunoId, turmaId, nota, frequencia) VALUES 
+(1, 1, 8.5, 95),
+(1, 2, 7.0, 88),
+(2, 2, 9.2, 100),
+(2, 3, NULL, NULL),
+(3, 4, NULL, NULL),
+(4, 5, 10.0, 90),
+(4, 6, 6.5, 75),
+(5, 1, 9.5, 98),
+(6, 7, NULL, NULL),
+(8, 9, 8.0, 85),
+(8, 10, NULL, NULL),
+(10, 6, NULL, NULL);
