@@ -68,4 +68,4 @@ Módulo do Aluno: Focado na consulta de desempenho acadêmico.
 
   * Validações Nativas: Os DTOs de entrada utilizam atributos de anotação de dados (como [Required] e [Range]) combinados com ModelState.IsValid para garantir a integridade dos dados antes de qualquer interação com o banco.
 
- * Documentação: Os Controllers possuem documentação XML (/// <summary>) e anotações de resposta ([ProducesResponseType]) que geram um Swagger intuitivo e completo para os desenvolvedores Front-end.
+ * Documentação: Os Controllers possuem documentação XML e anotações de resposta ([ProducesResponseType]) que geram um Swagger intuitivo e completo para os desenvolvedores Front-end.
