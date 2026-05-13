@@ -731,6 +731,16 @@
     ]
   },
   {
+    "ContainingType": "Sprint3.Controllers.ProfessorController",
+    "Method": "GetMeuPerfil",
+    "RelativePath": "api/Professor/meu-perfil",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sprint3.Controllers.TurmaController",
     "Method": "GetTurmas",
     "RelativePath": "api/Turma",

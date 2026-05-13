@@ -1274,6 +1274,19 @@
         }
       }
     },
+    "/api/Professor/meu-perfil": {
+      "get": {
+        "tags": [
+          "Professor"
+        ],
+        "summary": "Retorna o perfil do professor logado usando o CPF do token.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Turma": {
       "get": {
         "tags": [

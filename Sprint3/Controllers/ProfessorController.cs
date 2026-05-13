@@ -10,7 +10,6 @@ namespace Sprint3.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "administrador")]
 public class ProfessorController : ControllerBase
 {
     private readonly EmhsDbContext _context;
@@ -30,6 +29,7 @@ public class ProfessorController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<ProfessorResponseDTO>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> GetProfessores()
     {
         try
@@ -65,6 +65,7 @@ public class ProfessorController : ControllerBase
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(ProfessorResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> GetProfessorById(int id)
     {
         var professor = await _context.Professores
@@ -103,6 +104,7 @@ public class ProfessorController : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> PostProfessor([FromBody] CreateProfessorDTO dto)
     {
         if (!ModelState.IsValid)
@@ -151,6 +153,7 @@ public class ProfessorController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> PatchProfessor(int id, [FromBody] UpdateProfessorDTO dto)
     {
         var professor = await _context.Professores.FindAsync(id);
@@ -186,6 +189,7 @@ public class ProfessorController : ControllerBase
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> DeleteProfessor(int id)
     {
         var professor = await _context.Professores.FindAsync(id);
@@ -199,29 +203,32 @@ public class ProfessorController : ControllerBase
         return NoContent();
     }
 
-    ///// <summary>
-    ///// Retorna o perfil do professor logado usando o CPF do token.
-    ///// </summary>
-    //[HttpGet("meu-perfil")]
-    //[Authorize(Roles = "professor")]
-    //public async Task<IActionResult> GetMeuPerfil()
-    //{
-    //    var cpfClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Name)
-    //                ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+    /// <summary>
+    /// Retorna o perfil do professor logado usando o CPF do token.
+    /// </summary>
+    [HttpGet("meu-perfil")]
+    [Authorize(Roles = "professor")]
+    public async Task<IActionResult> GetMeuPerfil()
+    {
+        var cpfLogado = User.Identity?.Name;
 
-    //    if (cpfClaim == null) return Unauthorized(new { Mensagem = "CPF não encontrado no token." });
+        if (string.IsNullOrEmpty(cpfLogado))
+            return Unauthorized(new { Mensagem = "Não foi possível identificar o usuário logado." });
 
-    //    var professor = await _context.Professores
-    //        .AsNoTracking()
-    //        .FirstOrDefaultAsync(p => p.Cpf == cpfClaim.Value);
+        var perfilProfessor = await _context.Professores
+            .AsNoTracking()
+            .Where(p => p.Cpf == cpfLogado)
+            .Select(p => new
+            {
+                Id = p.Id,
+                Nome = p.Nome,
+                Especialidade = p.Especialidade
+            })
+            .FirstOrDefaultAsync();
 
-    //    if (professor == null) return NotFound(new { Mensagem = "Professor não encontrado." });
+        if (perfilProfessor == null)
+            return NotFound(new { Mensagem = "Professor não encontrado na base de dados." });
 
-    //    return Ok(new
-    //    {
-    //        Id = professor.Id,
-    //        Nome = professor.Nome,
-    //        Especialidade = professor.Especialidade
-    //    });
-    //}
+        return Ok(perfilProfessor);
+    }
 }

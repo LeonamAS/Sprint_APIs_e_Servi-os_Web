@@ -169,41 +169,41 @@ public class MatriculaController : ControllerBase
         return NoContent();
     }
 
-    ///// <summary>
-    ///// Lista as matrículas vinculadas apenas às turmas do professor logado.
-    ///// </summary>
-    //[HttpGet("minhas")]
-    //[Authorize(Roles = "professor")]
-    //public async Task<IActionResult> GetMinhasMatriculas()
-    //{
-    //    var cpfClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Name)
-    //                ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+    /// <summary>
+    /// Lista as matrículas vinculadas apenas às turmas do professor logado.
+    /// </summary>
+    [HttpGet("minhas")]
+    [Authorize(Roles = "professor")]
+    public async Task<IActionResult> GetMinhasMatriculas()
+    {
+        var cpfClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Name)
+                    ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
 
-    //    if (cpfClaim == null) return Unauthorized(new { Mensagem = "CPF não encontrado no token." });
+        if (cpfClaim == null) return Unauthorized(new { Mensagem = "CPF não encontrado no token." });
 
-    //    string cpfLogado = cpfClaim.Value;
+        string cpfLogado = cpfClaim.Value;
 
-    //    var professor = await _context.Professores.FirstOrDefaultAsync(p => p.Cpf == cpfLogado);
+        var professor = await _context.Professores.FirstOrDefaultAsync(p => p.Cpf == cpfLogado);
 
-    //    if (professor == null) return Unauthorized(new { Mensagem = "Professor não encontrado no banco de dados." });
+        if (professor == null) return Unauthorized(new { Mensagem = "Professor não encontrado no banco de dados." });
 
-    //    var minhasMatriculas = await _context.Matriculas
-    //        .Include(m => m.Aluno)
-    //        .Include(m => m.Turma)
-    //        .Where(m => m.Turma.ProfessorId == professor.Id)
-    //        .AsNoTracking()
-    //        .Select(m => new MatriculaResponseDTO
-    //        {
-    //            Id = m.Id,
-    //            AlunoId = m.AlunoId,
-    //            NomeAluno = m.Aluno.Nome,
-    //            TurmaId = m.TurmaId,
-    //            NomeTurma = m.Turma.Nome,
-    //            Nota = m.Nota,
-    //            Frequencia = m.Frequencia
-    //        })
-    //        .ToListAsync();
+        var minhasMatriculas = await _context.Matriculas
+            .Include(m => m.Aluno)
+            .Include(m => m.Turma)
+            .Where(m => m.Turma.ProfessorId == professor.Id)
+            .AsNoTracking()
+            .Select(m => new MatriculaResponseDTO
+            {
+                Id = m.Id,
+                AlunoId = m.AlunoId,
+                NomeAluno = m.Aluno.Nome,
+                TurmaId = m.TurmaId,
+                NomeTurma = m.Turma.Nome,
+                Nota = m.Nota,
+                Frequencia = m.Frequencia
+            })
+            .ToListAsync();
 
-    //    return Ok(minhasMatriculas);
-    //}
+        return Ok(minhasMatriculas);
+    }
 }

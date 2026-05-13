@@ -260,6 +260,11 @@
             Remove um professor do sistema.
             </summary>
         </member>
+        <member name="M:Sprint3.Controllers.ProfessorController.GetMeuPerfil">
+            <summary>
+            Retorna o perfil do professor logado usando o CPF do token.
+            </summary>
+        </member>
         <member name="M:Sprint3.Controllers.TurmaController.GetTurmas">
             <summary>
             Lista todos as turmas cadastradas.
