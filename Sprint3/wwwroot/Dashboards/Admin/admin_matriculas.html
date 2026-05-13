@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Matrículas - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        .navbar-custom {
+            background-color: #512da8 !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-header {
+            background-color: rgba(255, 255, 255);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .table-custom thead th {
+            color: #512da8;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #512da8;
+        }
+
+        .btn-action-custom {
+            border-width: 2px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand text-light-contrast" href="dashboard_admin.html"><i class="bi bi-arrow-left me-2"></i> Voltar ao Painel</a>
+            <div class="d-flex">
+                <span class="navbar-text text-light-contrast me-3">Módulo: Matrículas</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center content-header mb-4">
+            <h2 class="mb-0">Alunos Matriculados</h2>
+            <button class="btn btn-success btn-lg shadow-sm" onclick="abrirModalMatricula()">
+                <i class="bi bi-link-45deg me-2 fs-5"></i> Nova Matrícula
+            </button>
+        </div>
+
+        <div class="card shadow-lg mb-4">
+            <div class="card-body p-0 table-responsive">
+                <table class="table table-striped table-bordered table-hover table-custom mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Aluno</th>
+                            <th>Turma</th>
+                            <th class="text-center">Nota Atual</th>
+                            <th class="text-center">Frequência</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaMatriculas">
+                        <tr><td colspan="5" class="text-center text-muted py-3">Carregando matrículas...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMatricula" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-person-badge me-2"></i> Matricular Aluno</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="msgModalMatricula"></div>
+                    <form id="formMatricula">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Selecione o Aluno</label>
+                            <select class="form-select" id="matriculaAlunoId" required>
+                                <option value="">Carregando alunos...</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Selecione a Turma</label>
+                            <select class="form-select" id="matriculaTurmaId" required>
+                                <option value="">Carregando turmas...</option>
+                            </select>
+                        </div>
+                        <div class="alert alert-info small">
+                            <i class="bi bi-info-circle me-1"></i> Notas e frequências serão lançadas posteriormente pelo professor responsável.
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Confirmar Matrícula</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConfirmarExclusao" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle-fill me-2"></i> Cancelar Matrícula</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja cancelar a matrícula do(a) aluno(a) <span id="nomeAlunoExcluir" class="fw-bold text-dark"></span> na turma <span id="nomeTurmaExcluir" class="fw-bold text-dark"></span>?</p>
+                    <p class="text-danger small mb-0"><i class="bi bi-info-circle me-1"></i> <strong>Atenção:</strong> Todas as notas e frequências lançadas para este aluno nesta turma serão perdidas e não poderão ser recuperadas.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmarExclusaoFinal">Confirmar Cancelamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="admin_matriculas.js"></script>
+</body>
+</html>

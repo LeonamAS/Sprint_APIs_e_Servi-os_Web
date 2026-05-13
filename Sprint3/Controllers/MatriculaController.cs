@@ -138,7 +138,7 @@ public class MatriculaController : ControllerBase
     /// <param name="id">ID numérico da matricula a ser atualizada.</param>
     /// <param name="dto">Objeto contendo os dados parciais para atualização.</param>
     [HttpPatch("{id}")]
-    [Authorize(Roles = "administradores,professor")]
+    [Authorize(Roles = "administrador,professor")]
     public async Task<IActionResult> PatchMatricula(int id, [FromBody] UpdateMatriculaDTO dto)
     {
         var matricula = await _context.Matriculas.FindAsync(id);
@@ -158,7 +158,7 @@ public class MatriculaController : ControllerBase
     /// Remove um aluno do sistema.
     /// </summary>
     [HttpDelete("{id}")]
-    [Authorize(Roles = "professor")]
+    [Authorize(Roles = "administrador")]
     public async Task<IActionResult> DeleteMatricula(int id)
     {
         var matricula = await _context.Matriculas.FindAsync(id);
