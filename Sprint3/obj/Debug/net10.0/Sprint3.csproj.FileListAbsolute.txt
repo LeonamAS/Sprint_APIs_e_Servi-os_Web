@@ -290,8 +290,6 @@ E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\3z25m9dxys-{0}-s
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\6pb6xldwoy-{0}-orie14p1r8-orie14p1r8.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\vr5del3rmn-{0}-cz6nuea8fa-cz6nuea8fa.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\20p9l5c2dt-{0}-d0t7y2jk9k-d0t7y2jk9k.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\233jz4hsql-{0}-ba1i50joc2-ba1i50joc2.gz
-E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\lhw9pejpat-{0}-5gl0rpn54p-5gl0rpn54p.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\xqv9j3cxs0-{0}-vjfzc5xs2p-vjfzc5xs2p.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\31s88nqzwq-{0}-cdbwoy9cho-cdbwoy9cho.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\fgc4lc2l1z-{0}-2gc7wsq8co-2gc7wsq8co.gz
@@ -300,3 +298,5 @@ E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\oksr6sehfc-{0}-8
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\10bszmrtc6-{0}-ypptrk1jr9-ypptrk1jr9.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\irm7iw0y02-{0}-cq7dwfaghj-cq7dwfaghj.gz
 E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\4ktzu581u8-{0}-lbajpckp08-lbajpckp08.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\233jz4hsql-{0}-euee374le3-euee374le3.gz
+E:\Leonam\BACK_END\Sprint3\Sprint3\obj\Debug\net10.0\compressed\lhw9pejpat-{0}-rt4gw3evir-rt4gw3evir.gz

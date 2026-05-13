@@ -978,6 +978,19 @@
         }
       }
     },
+    "/api/Matricula/minhas": {
+      "get": {
+        "tags": [
+          "Matricula"
+        ],
+        "summary": "Lista as matrículas vinculadas apenas às turmas do professor logado.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Professor": {
       "get": {
         "tags": [

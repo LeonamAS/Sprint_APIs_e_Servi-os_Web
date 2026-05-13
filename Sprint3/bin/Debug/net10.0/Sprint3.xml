@@ -199,6 +199,11 @@
             Remove um aluno do sistema.
             </summary>
         </member>
+        <member name="M:Sprint3.Controllers.MatriculaController.GetMinhasMatriculas">
+            <summary>
+            Lista as matrículas vinculadas apenas às turmas do professor logado.
+            </summary>
+        </member>
         <member name="M:Sprint3.Controllers.ProfessorController.GetProfessores">
             <summary>
             Lista todos os professores cadastrados.

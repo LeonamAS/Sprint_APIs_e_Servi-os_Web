@@ -198,4 +198,30 @@ public class ProfessorController : ControllerBase
 
         return NoContent();
     }
+
+    ///// <summary>
+    ///// Retorna o perfil do professor logado usando o CPF do token.
+    ///// </summary>
+    //[HttpGet("meu-perfil")]
+    //[Authorize(Roles = "professor")]
+    //public async Task<IActionResult> GetMeuPerfil()
+    //{
+    //    var cpfClaim = User.FindFirst(System.Security.Claims.ClaimTypes.Name)
+    //                ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+
+    //    if (cpfClaim == null) return Unauthorized(new { Mensagem = "CPF não encontrado no token." });
+
+    //    var professor = await _context.Professores
+    //        .AsNoTracking()
+    //        .FirstOrDefaultAsync(p => p.Cpf == cpfClaim.Value);
+
+    //    if (professor == null) return NotFound(new { Mensagem = "Professor não encontrado." });
+
+    //    return Ok(new
+    //    {
+    //        Id = professor.Id,
+    //        Nome = professor.Nome,
+    //        Especialidade = professor.Especialidade
+    //    });
+    //}
 }

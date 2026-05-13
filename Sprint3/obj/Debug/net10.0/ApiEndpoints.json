@@ -554,6 +554,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Sprint3.Controllers.MatriculaController",
+    "Method": "GetMinhasMatriculas",
+    "RelativePath": "api/Matricula/minhas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sprint3.Controllers.ProfessorController",
     "Method": "GetProfessores",
     "RelativePath": "api/Professor",
