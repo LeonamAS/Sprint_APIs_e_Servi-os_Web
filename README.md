@@ -12,8 +12,11 @@ Introdução:
 
   Minha API é de um sistema de gestão escolar de uma faculdade fictícia.
 
-  Importante: é nescesário alterar a ConnectionString no appsettings.json para poder realizar os testes.
+  Importante: 
+  * É nescesário alterar a ConnectionString no appsettings.json para poder realizar os testes.
 ("EmhsConnection": "server=localhost;database=HilbertoSilva;user=root;password={SUA_SENHA_AQUI}"
+  * Também é nescessário criar o usuário de admin diretamente no banco de dados.
+  
 
   Minha API é focada no gerenciamento de uma faculdade, sendo assim criei uma interface que possibilita ao administrador o total controle dos alunos e professores cadastrados no banco de dados, além das turmas e disciplinas cadastradas. O sistema também oferece portais dedicados para o corpo docente (lançamento de notas e frequências) e discente (consulta de boletins).
 
